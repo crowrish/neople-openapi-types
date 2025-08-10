@@ -32,6 +32,7 @@ import {
 } from 'neople-openapi-types';
 ```
 
+
 ### 사이퍼즈 API 사용 예시
 
 #### 타입 정의만 사용하기
@@ -212,6 +213,9 @@ try {
 - `HttpStatusCode`: HTTP 상태 코드 enum
 - `NeopleApiException`: 네오플 API 예외 클래스
 - `PaginationParams`: 페이지네이션 파라미터
+- `ApiRequestOptions`: API 요청 옵션
+- `DateString`: 날짜 문자열 타입 (YYYY-MM-DD)
+- `DateTimeString`: 날짜시간 문자열 타입
 
 ### 서버 & 게임 타입
 
@@ -224,11 +228,120 @@ try {
 - `CyphersItemRarity`: 사이퍼즈 아이템 희귀도
 - `CyphersTier`: 사이퍼즈 티어 시스템
 
-### 에러 코드
+### 에러 코드 & 상태
 
 - `CommonApiErrorCode`: 공통 API 에러 (API000~API999)
 - `DnfErrorCode`: 던파 전용 에러 (DNF000~DNF999)  
 - `CyphersErrorCode`: 사이퍼즈 전용 에러 (CY001~CY999)
+- `ApiErrorCode`: 모든 API 에러 코드 통합 타입
+
+### 던전앤파이터 주요 타입
+
+#### 캐릭터 관련
+- `CharacterSearch`: 캐릭터 검색 결과
+- `CharacterBasic`: 캐릭터 기본 정보
+- `CharacterStatus`: 캐릭터 능력치 정보
+- `CharacterEquipment`: 캐릭터 장비 정보
+- `CharacterAvatar`: 캐릭터 아바타 정보
+- `CharacterCreature`: 캐릭터 크리처 정보
+- `CharacterFlag`: 캐릭터 국기 정보
+- `CharacterTalisman`: 캐릭터 탈리스만 정보
+
+#### 스킬 & 버프
+- `CharacterSkill`: 캐릭터 스킬 정보
+- `CharacterBuff`: 캐릭터 버프 정보
+- `SkillStyle`: 스킬 스타일 정보
+- `SkillInfo`: 스킬 상세 정보
+
+#### 아이템 & 경매장
+- `ItemSearch`: 아이템 검색 결과
+- `ItemDetail`: 아이템 상세 정보
+- `SetItemInfo`: 세트 아이템 정보
+- `MultiItemInfo`: 멀티 아이템 정보
+- `AuctionSearch`: 경매장 검색 결과
+- `AuctionSold`: 경매장 판매 내역
+
+#### 기타
+- `Timeline`: 캐릭터 타임라인 정보
+
+### 사이퍼즈 주요 타입
+
+#### 플레이어 & 랭킹
+- `PlayerInfo`: 플레이어 기본 정보
+- `PlayerMatches`: 플레이어 매치 기록
+- `RankingInfo`: 랭킹 정보
+- `PlayerRanking`: 플레이어 랭킹 데이터
+
+#### 매치 관련
+- `MatchDetail`: 매치 상세 정보
+- `MatchTeam`: 매치 팀 정보
+- `MatchPlayer`: 매치 플레이어 정보
+- `Position`: 플레이어 위치 정보
+
+#### 아이템 & 장비
+- `ItemInfo`: 아이템 기본 정보
+- `ItemDetail`: 아이템 상세 정보
+- `PlayerEquipment`: 플레이어 장비 정보
+- `ItemTuning`: 아이템 튜닝 정보
+
+#### 사이퍼 캐릭터
+- `CypherInfo`: 사이퍼 기본 정보
+- `CypherDetail`: 사이퍼 상세 정보
+- `CypherAbility`: 사이퍼 능력치
+- `CypherSkill`: 사이퍼 스킬
+- `CypherRecommendItem`: 추천 아이템 정보
+
+#### 클라이언트 인터페이스
+- `CyphersApiClient`: 사이퍼즈 API 클라이언트 인터페이스
+- `CyphersApiConfig`: API 클라이언트 설정
+- `CYPHERS_API_ENDPOINTS`: API 엔드포인트 상수
+
+### 동일한 이름의 타입 구분하기
+
+일부 타입은 던전앤파이터와 사이퍼즈에서 동일한 이름을 사용합니다. 이런 경우 네임스페이스를 통해 구분하여 사용하세요:
+
+#### 네임스페이스를 통한 구분 사용
+```typescript
+import { DungeonFighter, Cyphers } from 'neople-openapi-types';
+
+// 던전앤파이터의 ItemDetail 사용
+const dfItem: DungeonFighter.ItemDetail = {
+  itemId: "df001",
+  itemName: "던파 아이템",
+  itemRarity: "common",
+  itemTypeId: "weapon",
+  // ... 던파 전용 필드들
+};
+
+// 사이퍼즈의 ItemDetail 사용  
+const cyItem: Cyphers.ItemDetail = {
+  itemId: "cy001",
+  itemName: "사이퍼즈 아이템", 
+  slotCode: "weapon",
+  rarityCode: "101",
+  // ... 사이퍼즈 전용 필드들
+};
+```
+
+#### 직접 import로 별칭 사용
+```typescript
+import { ItemDetail as DFItemDetail } from 'neople-openapi-types/dungeon-fighter';
+import { ItemDetail as CyItemDetail } from 'neople-openapi-types/cyphers';
+
+const dfItem: DFItemDetail = {
+  itemId: "df001",
+  itemName: "던파 아이템",
+  itemRarity: "common"
+  // ... 던파 전용 필드들
+};
+
+const cyItem: CyItemDetail = {
+  itemId: "cy001", 
+  itemName: "사이퍼즈 아이템",
+  slotCode: "weapon"
+  // ... 사이퍼즈 전용 필드들
+};
+```
 
 ## 개발
 
