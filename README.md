@@ -174,34 +174,34 @@ try {
 
 ### 사이퍼즈 API 엔드포인트
 
-| 기능 | 엔드포인트 | 타입 |
-|------|-----------|------|
-| 플레이어 검색 | `GET /cy/players` | `PlayerSearchParams` |
-| 플레이어 정보 | `GET /cy/players/{playerId}` | `PlayerInfoParams` |
-| 매치 기록 | `GET /cy/players/{playerId}/matches` | `PlayerMatchesParams` |
-| 매치 상세 | `GET /cy/matches/{matchId}` | `MatchDetailParams` |
-| 전체 랭킹 | `GET /cy/ranking/ratingpoint` | `OverallRankingParams` |
-| 캐릭터별 랭킹 | `GET /cy/ranking/characters/{characterId}/{rankingType}` | `CharacterRankingParams` |
-| 아이템 검색 | `GET /cy/battleitems` | `ItemSearchParams` |
-| 플레이어 장비 | `GET /cy/players/{playerId}/battleitems` | `PlayerEquipmentParams` |
-| 사이퍼 정보 | `GET /cy/characters` | `CypherInfoParams` |
-| 추천 아이템 | `GET /cy/characters/{characterId}/items` | `RecommendItemParams` |
+| 기능 | 타입 |
+|------|------|
+| 플레이어 검색<br>`GET /cy/players` | `PlayerSearchParams` |
+| 플레이어 정보<br>`GET /cy/players/{playerId}` | `PlayerInfoParams` |
+| 매치 기록<br>`GET /cy/players/{playerId}/matches` | `PlayerMatchesParams` |
+| 매치 상세<br>`GET /cy/matches/{matchId}` | `MatchDetailParams` |
+| 전체 랭킹<br>`GET /cy/ranking/ratingpoint` | `OverallRankingParams` |
+| 캐릭터별 랭킹<br>`GET /cy/ranking/characters/{characterId}/{rankingType}` | `CharacterRankingParams` |
+| 아이템 검색<br>`GET /cy/battleitems` | `ItemSearchParams` |
+| 플레이어 장비<br>`GET /cy/players/{playerId}/battleitems` | `PlayerEquipmentParams` |
+| 사이퍼 정보<br>`GET /cy/characters` | `CypherInfoParams` |
+| 추천 아이템<br>`GET /cy/characters/{characterId}/items` | `RecommendItemParams` |
 
 ### 던전앤파이터 API 엔드포인트
 
-| 기능 | 엔드포인트 | 타입 |
-|------|-----------|------|
-| 캐릭터 검색 | `GET /df/servers/{serverId}/characters` | `CharacterSearchParams` |
-| 캐릭터 기본정보 | `GET /df/servers/{serverId}/characters/{characterId}` | `CharacterBasicParams` |
-| 캐릭터 능력치 | `GET /df/servers/{serverId}/characters/{characterId}/status` | `CharacterStatusParams` |
-| 캐릭터 장비 | `GET /df/servers/{serverId}/characters/{characterId}/equip/equipment` | `CharacterEquipmentParams` |
-| 캐릭터 아바타 | `GET /df/servers/{serverId}/characters/{characterId}/equip/avatar` | `CharacterAvatarParams` |
-| 캐릭터 스킬 | `GET /df/servers/{serverId}/characters/{characterId}/skill/style` | `CharacterSkillParams` |
-| 아이템 검색 | `GET /df/items` | `ItemSearchParams` |
-| 아이템 상세 | `GET /df/items/{itemId}` | `ItemDetailParams` |
-| 경매장 검색 | `GET /df/auction` | `AuctionSearchParams` |
-| 경매장 판매내역 | `GET /df/auction-sold` | `AuctionSoldParams` |
-| 타임라인 | `GET /df/servers/{serverId}/characters/{characterId}/timeline` | `CharacterTimelineParams` |
+| 기능 | 타입 |
+|------|------|
+| 캐릭터 검색<br>`GET /df/servers/{serverId}/characters` | `CharacterSearchParams` |
+| 캐릭터 기본정보<br>`GET /df/servers/{serverId}/characters/{characterId}` | `CharacterBasicParams` |
+| 캐릭터 능력치<br>`GET /df/servers/{serverId}/characters/{characterId}/status` | `CharacterStatusParams` |
+| 캐릭터 장비<br>`GET /df/servers/{serverId}/characters/{characterId}/equip/equipment` | `CharacterEquipmentParams` |
+| 캐릭터 아바타<br>`GET /df/servers/{serverId}/characters/{characterId}/equip/avatar` | `CharacterAvatarParams` |
+| 캐릭터 스킬<br>`GET /df/servers/{serverId}/characters/{characterId}/skill/style` | `CharacterSkillParams` |
+| 아이템 검색<br>`GET /df/items` | `ItemSearchParams` |
+| 아이템 상세<br>`GET /df/items/{itemId}` | `ItemDetailParams` |
+| 경매장 검색<br>`GET /df/auction` | `AuctionSearchParams` |
+| 경매장 판매내역<br>`GET /df/auction-sold` | `AuctionSoldParams` |
+| 타임라인<br>`GET /df/servers/{serverId}/characters/{characterId}/timeline` | `CharacterTimelineParams` |
 
 ## 주요 타입
 
@@ -275,13 +275,10 @@ MIT License
 이 라이브러리는 MIT 라이선스 하에 배포되며, 네오플 Open API 서비스의 이용약관을 준수합니다.
 
 **중요 사항:**
-- 이 라이브러리는 네오플 Open API의 비공식 TypeScript 타입 정의입니다
-- 네오플 Open API 서비스 이용 시 네오플의 이용약관을 반드시 준수해야 합니다
-- API 사용에 대한 대가를 받아서는 안 됩니다
-- 네오플의 브랜드를 모방하거나 도용해서는 안 됩니다
-- 이 라이브러리는 어떠한 보증도 제공하지 않습니다
+- 이 라이브러리는 네오플 Open API의 **비공식** TypeScript 타입 정의입니다.
+- 네오플 Open API 서비스 이용 시 네오플의 이용약관을 반드시 준수해야 합니다.
 
-자세한 내용은 [네오플 Open API 이용정책](https://developers.neople.co.kr/contents/policy)을 참조하십시오.
+자세한 내용은 [네오플 Open API 이용정책](https://developers.neople.co.kr/contents/policy)을 참조하세요.
 
 ## 기여
 
