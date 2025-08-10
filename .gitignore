@@ -95,3 +95,6 @@ public
 # Temporary folders
 tmp/
 temp/
+
+# Claude Code memory file
+CLAUDE.md
