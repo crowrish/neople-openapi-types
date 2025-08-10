@@ -1,6 +1,6 @@
 # neople-openapi-types
 
-네오플 Open API를 위한 포괄적인 TypeScript 타입 정의 라이브러리입니다.
+[네오플 Open API](https://developers.neople.co.kr/)를 위한 포괄적인 TypeScript 타입 정의 라이브러리입니다.
 
 ## 설치
 
