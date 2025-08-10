@@ -1,0 +1,37 @@
+MIT License
+
+Copyright (c) 2024 neople-openapi-types
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+IMPORTANT NOTICE:
+
+This library provides TypeScript type definitions for Neople's Open API service.
+Usage of this library requires compliance with Neople's Terms of Service:
+https://developers.neople.co.kr/contents/policy
+
+Key restrictions include:
+- Cannot charge fees for API usage
+- Must not imitate or misuse Neople's brand
+- Must comply with all Neople Open API terms and conditions
+- No warranties are provided by Neople for the API service
+
+This TypeScript library is unofficial and not affiliated with Neople Inc.
