@@ -18,7 +18,7 @@ npm install -D neople-openapi-types
 ### 기본 사용법
 
 ```typescript
-import { 
+import type { 
   // 공통 타입
   ApiResponse, 
   HttpStatusCode, 
@@ -38,7 +38,7 @@ import {
 #### 타입 정의만 사용하기
 
 ```typescript
-import { 
+import type { 
   PlayerSearchParams, 
   PlayerSearchResponse 
 } from 'neople-openapi-types';
@@ -61,7 +61,7 @@ const results: PlayerSearchResponse = await response.json();
 #### API 클라이언트 인터페이스 활용하기
 
 ```typescript
-import { 
+import type { 
   CyphersApiClient,
   CyphersApiConfig,
   PlayerSearchParams 
@@ -121,10 +121,12 @@ const equipUrl = `/df/servers/${equipParams.serverId}/characters/${equipParams.c
 
 ```typescript
 import axios from 'axios';
-import { 
+import type { 
   PlayerInfoParams,
   PlayerInfo,
-  NeopleApiException,
+  NeopleApiException
+} from 'neople-openapi-types';
+import { 
   isApiKeyError,
   isRateLimitError,
   isMaintenanceError 
@@ -208,93 +210,139 @@ try {
 
 ### 공통 타입
 
-- `ApiResponse<T>`: 네오플 API 공통 응답 구조
-- `ApiError`: API 에러 응답
-- `HttpStatusCode`: HTTP 상태 코드 enum
-- `NeopleApiException`: 네오플 API 예외 클래스
-- `PaginationParams`: 페이지네이션 파라미터
-- `ApiRequestOptions`: API 요청 옵션
-- `DateString`: 날짜 문자열 타입 (YYYY-MM-DD)
-- `DateTimeString`: 날짜시간 문자열 타입
+#### API 응답 및 요청
+- **`ApiResponse<T>`** - 모든 네오플 API의 표준 응답 구조
+  ```typescript
+  interface ApiResponse<T> {
+    rows: T[];
+    next?: string;
+    totalCount?: number;
+  }
+  ```
 
-### 서버 & 게임 타입
+- **`ApiRequestOptions`** - API 요청 시 공통 옵션 (페이지네이션 포함)
+- **`PaginationParams`** - 페이지네이션을 위한 파라미터 (`limit`, `offset`)
 
-- `DFServer`: 던파 서버 목록 ('anton', 'bakal', 'cain', 'casillas', 'diregie', 'hilder', 'prey', 'siroco')
-- `CyphersGameType`: 사이퍼즈 게임 타입 ('rating', 'normal')
+#### 날짜 및 시간
+- **`DateString`** - 날짜 문자열 (`YYYY-MM-DD` 형식)
+- **`DateTimeString`** - 날짜시간 문자열 (ISO 8601 형식)
 
-### 아이템 관련
+#### 에러 처리
+- **`ApiError`** - API 에러 응답의 기본 구조
+- **`NeopleApiException`** - 네오플 API 전용 예외 클래스
+- **`HttpStatusCode`** - HTTP 상태 코드 열거형 (200, 400, 401, 403, 404, 500 등)
 
-- `DFItemRarity`: 던파 아이템 희귀도
-- `CyphersItemRarity`: 사이퍼즈 아이템 희귀도
-- `CyphersTier`: 사이퍼즈 티어 시스템
+### 서버 및 게임 환경
 
-### 에러 코드 & 상태
+#### 던전앤파이터 서버
+- **`DFServer`** - 던파의 8개 서버 식별자
+  - `'anton'`, `'bakal'`, `'cain'`, `'casillas'`, `'diregie'`, `'hilder'`, `'prey'`, `'siroco'`
 
-- `CommonApiErrorCode`: 공통 API 에러 (API000~API999)
-- `DnfErrorCode`: 던파 전용 에러 (DNF000~DNF999)  
-- `CyphersErrorCode`: 사이퍼즈 전용 에러 (CY001~CY999)
-- `ApiErrorCode`: 모든 API 에러 코드 통합 타입
+#### 사이퍼즈 게임 모드
+- **`CyphersGameType`** - 사이퍼즈 게임 타입 구분
+  - `'rating'`: 공식 랭킹전
+  - `'normal'`: 일반 게임
 
-### 던전앤파이터 주요 타입
+### 아이템 시스템
 
-#### 캐릭터 관련
-- `CharacterSearch`: 캐릭터 검색 결과
-- `CharacterBasic`: 캐릭터 기본 정보
-- `CharacterStatus`: 캐릭터 능력치 정보
-- `CharacterEquipment`: 캐릭터 장비 정보
-- `CharacterAvatar`: 캐릭터 아바타 정보
-- `CharacterCreature`: 캐릭터 크리처 정보
-- `CharacterFlag`: 캐릭터 국기 정보
-- `CharacterTalisman`: 캐릭터 탈리스만 정보
+#### 아이템 등급 및 희귀도
+- **`DFItemRarity`** - 던파 아이템 희귀도 (일반, 고급, 희귀, 유니크, 에픽 등)
+- **`CyphersItemRarity`** - 사이퍼즈 아이템 등급 (`'101'`~`'104'`)
 
-#### 스킬 & 버프
-- `CharacterSkill`: 캐릭터 스킬 정보
-- `CharacterBuff`: 캐릭터 버프 정보
-- `SkillStyle`: 스킬 스타일 정보
-- `SkillInfo`: 스킬 상세 정보
+#### 랭킹 및 티어
+- **`CyphersTier`** - 사이퍼즈 랭킹 티어 시스템 (브론즈~엘리트)
 
-#### 아이템 & 경매장
-- `ItemSearch`: 아이템 검색 결과
-- `ItemDetail`: 아이템 상세 정보
-- `SetItemInfo`: 세트 아이템 정보
-- `MultiItemInfo`: 멀티 아이템 정보
-- `AuctionSearch`: 경매장 검색 결과
-- `AuctionSold`: 경매장 판매 내역
+### 에러 코드 시스템
 
-#### 기타
-- `Timeline`: 캐릭터 타임라인 정보
+네오플 API는 체계적인 에러 코드를 제공합니다:
 
-### 사이퍼즈 주요 타입
+#### 공통 에러 코드
+- **`CommonApiErrorCode`** - 모든 API 공통 에러 (`API000`~`API999`)
+  - 인증 오류, 요청 제한, 서버 오류 등
 
-#### 플레이어 & 랭킹
-- `PlayerInfo`: 플레이어 기본 정보
-- `PlayerMatches`: 플레이어 매치 기록
-- `RankingInfo`: 랭킹 정보
-- `PlayerRanking`: 플레이어 랭킹 데이터
+#### 게임별 전용 에러
+- **`DnfErrorCode`** - 던전앤파이터 전용 (`DNF000`~`DNF999`)
+- **`CyphersErrorCode`** - 사이퍼즈 전용 (`CY001`~`CY999`)
 
-#### 매치 관련
-- `MatchDetail`: 매치 상세 정보
-- `MatchTeam`: 매치 팀 정보
-- `MatchPlayer`: 매치 플레이어 정보
-- `Position`: 플레이어 위치 정보
+#### 통합 타입
+- **`ApiErrorCode`** - 모든 에러 코드를 통합한 유니온 타입
 
-#### 아이템 & 장비
-- `ItemInfo`: 아이템 기본 정보
-- `ItemDetail`: 아이템 상세 정보
-- `PlayerEquipment`: 플레이어 장비 정보
-- `ItemTuning`: 아이템 튜닝 정보
+### 던전앤파이터 (DungeonFighter) 타입
 
-#### 사이퍼 캐릭터
-- `CypherInfo`: 사이퍼 기본 정보
-- `CypherDetail`: 사이퍼 상세 정보
-- `CypherAbility`: 사이퍼 능력치
-- `CypherSkill`: 사이퍼 스킬
-- `CypherRecommendItem`: 추천 아이템 정보
+#### 캐릭터 시스템
+던전앤파이터의 캐릭터 관련 정보를 다루는 타입들입니다:
 
-#### 클라이언트 인터페이스
-- `CyphersApiClient`: 사이퍼즈 API 클라이언트 인터페이스
-- `CyphersApiConfig`: API 클라이언트 설정
-- `CYPHERS_API_ENDPOINTS`: API 엔드포인트 상수
+- **`CharacterSearch`** - 캐릭터 검색 결과 (캐릭터명으로 검색)
+- **`CharacterBasic`** - 캐릭터 기본 정보 (레벨, 직업, 길드 등)
+- **`CharacterStatus`** - 캐릭터 능력치 및 스탯 정보
+- **`CharacterEquipment`** - 착용 중인 장비 정보 및 인챈트/증폭
+- **`CharacterAvatar`** - 아바타 장착 정보 (상의, 하의, 모자 등)
+- **`CharacterCreature`** - 크리처 및 아티팩트 정보
+- **`CharacterFlag`** - 국기 시스템 관련 정보
+- **`CharacterTalisman`** - 탈리스만(부적) 및 룬 정보
+
+#### 스킬 및 버프 시스템
+캐릭터의 스킬과 각종 버프 효과를 나타내는 타입들:
+
+- **`CharacterSkill`** - 캐릭터가 습득한 스킬 목록 및 레벨
+- **`SkillStyle`** - 스킬 스타일 (액티브/패시브) 정보
+- **`SkillInfo`** - 개별 스킬의 상세 정보
+- **`CharacterBuff`** - 적용 중인 버프 효과들 (장비, 아바타, 크리처 등)
+
+#### 아이템 및 거래 시스템
+아이템 정보와 경매장 거래 관련 타입들:
+
+- **`ItemSearch`** - 아이템 검색 결과 (이름, 등급별 검색)
+- **`ItemDetail`** - 아이템 상세 정보 (옵션, 설명, 획득 방법)
+- **`SetItemInfo`** - 세트 아이템 정보 및 세트 효과
+- **`MultiItemInfo`** - 멀티 아이템(조각) 정보
+- **`AuctionSearch`** - 경매장 현재 판매 중인 아이템
+- **`AuctionSold`** - 경매장 판매 완료 내역
+
+#### 활동 기록
+- **`Timeline`** - 캐릭터의 최근 활동 기록 (던전 클리어, 아이템 획득 등)
+
+### 사이퍼즈 (Cyphers) 타입
+
+#### 플레이어 시스템
+사이퍼즈의 플레이어 및 랭킹 시스템 관련 타입들:
+
+- **`PlayerInfo`** - 플레이어 기본 정보 (닉네임, 레벨, 플레이 통계)
+- **`PlayerMatches`** - 플레이어의 최근 매치 기록 목록
+- **`RankingInfo`** - 전체 랭킹 정보 (TOP 랭커 목록)
+- **`PlayerRanking`** - 개별 플레이어의 랭킹 데이터 및 티어 정보
+
+#### 매치 및 게임 데이터
+실시간 전투 및 매치 결과를 나타내는 타입들:
+
+- **`MatchDetail`** - 매치 상세 정보 (게임 결과, 진행 시간, 맵 정보)
+- **`MatchTeam`** - 팀 정보 (팀원 구성, 팀 점수)
+- **`MatchPlayer`** - 매치 내 플레이어 개별 성과 (킬/데스, 데미지 등)
+- **`Position`** - 맵 내 플레이어 위치 좌표 정보
+
+#### 아이템 및 장비 시스템
+배틀 아이템과 캐릭터 장비 관련 타입들:
+
+- **`ItemInfo`** - 배틀 아이템 기본 정보 (이름, 등급, 슬롯)
+- **`ItemDetail`** - 아이템 상세 정보 (효과, 획득 방법, 튜닝 정보)
+- **`PlayerEquipment`** - 플레이어가 장착한 배틀 아이템 세트
+- **`ItemTuning`** - 아이템 튜닝 및 강화 정보
+
+#### 사이퍼 캐릭터 정보
+플레이 가능한 사이퍼 캐릭터들의 정보:
+
+- **`CypherInfo`** - 사이퍼 기본 정보 (이름, 역할군, 출시일)
+- **`CypherDetail`** - 사이퍼 상세 정보 (스토리, 컨셉)
+- **`CypherAbility`** - 사이퍼의 능력치 정보
+- **`CypherSkill`** - 사이퍼의 스킬 목록 및 설명
+- **`CypherRecommendItem`** - 사이퍼별 추천 배틀 아이템 조합
+
+#### 개발자 도구
+API 클라이언트 구현을 위한 인터페이스와 설정:
+
+- **`CyphersApiClient`** - 사이퍼즈 API 클라이언트 인터페이스 (구현 가이드라인)
+- **`CyphersApiConfig`** - API 클라이언트 설정 (API 키, 베이스 URL 등)
+- **`CYPHERS_API_ENDPOINTS`** - 모든 API 엔드포인트 상수 모음
 
 ### 동일한 이름의 타입 구분하기
 
@@ -302,7 +350,7 @@ try {
 
 #### 네임스페이스를 통한 구분 사용
 ```typescript
-import { DungeonFighter, Cyphers } from 'neople-openapi-types';
+import type { DungeonFighter, Cyphers } from 'neople-openapi-types';
 
 // 던전앤파이터의 ItemDetail 사용
 const dfItem: DungeonFighter.ItemDetail = {
@@ -325,8 +373,8 @@ const cyItem: Cyphers.ItemDetail = {
 
 #### 직접 import로 별칭 사용
 ```typescript
-import { ItemDetail as DFItemDetail } from 'neople-openapi-types/dungeon-fighter';
-import { ItemDetail as CyItemDetail } from 'neople-openapi-types/cyphers';
+import type { ItemDetail as DFItemDetail } from 'neople-openapi-types/dungeon-fighter';
+import type { ItemDetail as CyItemDetail } from 'neople-openapi-types/cyphers';
 
 const dfItem: DFItemDetail = {
   itemId: "df001",
