@@ -1,4 +1,5 @@
-import { CyphersGameType, CyphersTier } from '../common';
+import { CyphersGameType } from '../common';
+import { CyphersTier } from './enums';
 
 /** 플레이어 기본 정보 */
 export interface PlayerInfo {

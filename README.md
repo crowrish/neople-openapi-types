@@ -243,14 +243,23 @@ try {
   - `'rating'`: 공식 랭킹전
   - `'normal'`: 일반 게임
 
-### 아이템 시스템
+### 게임별 전용 타입
 
-#### 아이템 등급 및 희귀도
-- **`DFItemRarity`** - 던파 아이템 희귀도 (일반, 고급, 희귀, 유니크, 에픽 등)
-- **`CyphersItemRarity`** - 사이퍼즈 아이템 등급 (`'101'`~`'104'`)
+#### 던전앤파이터 전용
+- **`DFItemRarity`** - 던파 아이템 희귀도 (common, uncommon, rare, unique, epic, chronicle, legendary, myth)
+  ```typescript
+  import { DungeonFighter } from 'neople-openapi-types';
+  const rarity: DungeonFighter.DFItemRarity = 'epic';
+  ```
 
-#### 랭킹 및 티어
-- **`CyphersTier`** - 사이퍼즈 랭킹 티어 시스템 (브론즈~엘리트)
+#### 사이퍼즈 전용  
+- **`CyphersItemRarity`** - 사이퍼즈 아이템 등급 ('101', '102', '103', '104')
+- **`CyphersTier`** - 사이퍼즈 랭킹 티어 (BRONZE, SILVER, GOLD, DIAMOND, JOKER, ACE)
+  ```typescript
+  import { Cyphers } from 'neople-openapi-types';
+  const tier: Cyphers.CyphersTier = 'ACE';
+  const rarity: Cyphers.CyphersItemRarity = '104';
+  ```
 
 ### 에러 코드 시스템
 
@@ -399,8 +408,7 @@ const cyItem: CyItemDetail = {
 src/
 ├── common/           # 공통 타입 및 유틸리티
 │   ├── index.ts
-│   ├── servers.ts    # 서버 정보
-│   ├── enums.ts      # 열거형 타입
+│   ├── servers.ts    # 서버 정보 (DFServer, CyphersGameType)
 │   ├── codes.ts      # HTTP/에러 코드
 │   └── errors.ts     # 에러 처리
 ├── cyphers/          # 사이퍼즈 API 타입
@@ -410,6 +418,7 @@ src/
 │   ├── matches.ts    # 매치 상세 타입
 │   ├── item.ts       # 아이템 타입
 │   ├── cypher.ts     # 사이퍼 캐릭터 타입
+│   ├── enums.ts      # 사이퍼즈 전용 enum (CyphersTier, CyphersItemRarity)
 │   └── index.ts
 ├── dungeon-fighter/  # 던전앤파이터 API 타입
 │   ├── api.ts        # API 파라미터 타입
@@ -418,6 +427,7 @@ src/
 │   ├── item.ts       # 아이템 타입
 │   ├── auction.ts    # 경매장 타입
 │   ├── timeline.ts   # 타임라인 타입
+│   ├── enums.ts      # 던전앤파이터 전용 enum (DFItemRarity)
 │   └── index.ts
 └── index.ts          # 메인 export
 ```

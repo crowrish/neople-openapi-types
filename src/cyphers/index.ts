@@ -4,3 +4,4 @@ export * from './item';
 export * from './cypher';
 export * from './api';
 export * from './client';
+export * from './enums';

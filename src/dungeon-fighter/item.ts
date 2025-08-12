@@ -1,4 +1,4 @@
-import { DFItemRarity } from '../common';
+import { DFItemRarity } from './enums';
 
 export interface ItemSearch {
   itemId: string;

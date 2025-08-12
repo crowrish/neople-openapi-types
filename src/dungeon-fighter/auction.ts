@@ -1,4 +1,5 @@
-import { DFItemRarity, DFServer } from '../common';
+import { DFServer } from '../common';
+import { DFItemRarity } from './enums';
 
 export interface AuctionSearch {
   itemId?: string;

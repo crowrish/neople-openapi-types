@@ -1,4 +1,5 @@
-import { ApiResponse, PaginationParams, DFServer, DFItemRarity } from '../common';
+import { ApiResponse, PaginationParams, DFServer } from '../common';
+import { DFItemRarity } from './enums';
 
 /** 캐릭터 검색 API 파라미터
  * @endpoint GET /df/servers/{serverId}/characters?characterName={characterName}&wordType={wordType}&limit={limit}

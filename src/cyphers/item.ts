@@ -1,4 +1,4 @@
-import { CyphersItemRarity } from '../common';
+import { CyphersItemRarity } from './enums';
 
 /** 아이템 기본 정보 */
 export interface ItemInfo {
