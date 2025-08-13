@@ -229,24 +229,32 @@ try {
 
 #### 에러 처리
 - **`ApiError`** - API 에러 응답의 기본 구조
+- **`NeopleApiError`** - 네오플 API 에러 인터페이스
 - **`NeopleApiException`** - 네오플 API 전용 예외 클래스
 - **`HttpStatusCode`** - HTTP 상태 코드 열거형 (200, 400, 401, 403, 404, 500 등)
+
+#### 유틸리티 타입
+- **`RequireField<T, K>`** - 선택적 필드를 필수로 만드는 유틸리티 타입
+- **`SelectFields<T, K>`** - 특정 필드만 선택하는 유틸리티 타입
 
 ### 서버 및 게임 환경
 
 #### 던전앤파이터 서버
 - **`DFServer`** - 던파의 8개 서버 식별자
   - `'anton'`, `'bakal'`, `'cain'`, `'casillas'`, `'diregie'`, `'hilder'`, `'prey'`, `'siroco'`
+- **`DF_SERVERS`** - 서버 코드와 한글명 매핑 상수
 
 #### 사이퍼즈 게임 모드
 - **`CyphersGameType`** - 사이퍼즈 게임 타입 구분
   - `'rating'`: 공식 랭킹전
   - `'normal'`: 일반 게임
+- **`CYPHERS_GAME_TYPES`** - 게임 타입과 한글명 매핑 상수
 
 ### 게임별 전용 타입
 
 #### 던전앤파이터 전용
 - **`DFItemRarity`** - 던파 아이템 희귀도 (common, uncommon, rare, unique, epic, chronicle, legendary, myth)
+- **`DF_ITEM_RARITIES`** - 아이템 희귀도와 한글명 매핑 상수
   ```typescript
   import { DungeonFighter } from 'neople-openapi-types';
   const rarity: DungeonFighter.DFItemRarity = 'epic';
@@ -254,7 +262,9 @@ try {
 
 #### 사이퍼즈 전용  
 - **`CyphersItemRarity`** - 사이퍼즈 아이템 등급 ('101', '102', '103', '104')
+- **`CYPHERS_ITEM_RARITIES`** - 아이템 등급과 한글명 매핑 상수
 - **`CyphersTier`** - 사이퍼즈 랭킹 티어 (BRONZE, SILVER, GOLD, DIAMOND, JOKER, ACE)
+- **`CYPHERS_TIERS`** - 랭킹 티어와 한글명 매핑 상수
   ```typescript
   import { Cyphers } from 'neople-openapi-types';
   const tier: Cyphers.CyphersTier = 'ACE';
@@ -276,6 +286,10 @@ try {
 #### 통합 타입
 - **`ApiErrorCode`** - 모든 에러 코드를 통합한 유니온 타입
 
+#### 에러 메시지 및 상수
+- **`HTTP_STATUS_TO_ERROR`** - HTTP 상태 코드별 에러 메시지 매핑
+- **`ERROR_MESSAGES`** - 에러 코드별 상세 메시지 매핑
+
 ### 던전앤파이터 (DungeonFighter) 타입
 
 #### 캐릭터 시스템
@@ -284,32 +298,77 @@ try {
 - **`CharacterSearch`** - 캐릭터 검색 결과 (캐릭터명으로 검색)
 - **`CharacterBasic`** - 캐릭터 기본 정보 (레벨, 직업, 길드 등)
 - **`CharacterStatus`** - 캐릭터 능력치 및 스탯 정보
+- **`CharacterStat`** - 개별 능력치 정보 (힘, 지능, 체력 등)
 - **`CharacterEquipment`** - 착용 중인 장비 정보 및 인챈트/증폭
+- **`EquipmentItem`** - 개별 장비 아이템 정보
+- **`EnchantStat`** - 인챈트 능력치 정보
 - **`CharacterAvatar`** - 아바타 장착 정보 (상의, 하의, 모자 등)
+- **`AvatarItem`** - 개별 아바타 아이템 정보
 - **`CharacterCreature`** - 크리처 및 아티팩트 정보
-- **`CharacterFlag`** - 국기 시스템 관련 정보
+- **`CreatureInfo`** - 크리처 상세 정보
+- **`ArtifactInfo`** - 아티팩트 상세 정보
+- **`CharacterFlag`** - 휘장 시스템 관련 정보
+- **`FlagInfo`** - 휘장 상세 정보
+- **`GemInfo`** - 보석 정보
 - **`CharacterTalisman`** - 탈리스만(부적) 및 룬 정보
+- **`TalismanInfo`** - 탈리스만 상세 정보
+- **`RuneInfo`** - 룬 상세 정보
 
 #### 스킬 및 버프 시스템
 캐릭터의 스킬과 각종 버프 효과를 나타내는 타입들:
 
 - **`CharacterSkill`** - 캐릭터가 습득한 스킬 목록 및 레벨
 - **`SkillStyle`** - 스킬 스타일 (액티브/패시브) 정보
+- **`SkillStyleInfo`** - 스킬 스타일 상세 정보
 - **`SkillInfo`** - 개별 스킬의 상세 정보
 - **`CharacterBuff`** - 적용 중인 버프 효과들 (장비, 아바타, 크리처 등)
+- **`BuffSkill`** - 스킬 버프 정보
+- **`BuffEquipment`** - 장비 버프 정보
+- **`BuffAvatar`** - 아바타 버프 정보
+- **`BuffCreature`** - 크리처 버프 정보
 
 #### 아이템 및 거래 시스템
 아이템 정보와 경매장 거래 관련 타입들:
 
 - **`ItemSearch`** - 아이템 검색 결과 (이름, 등급별 검색)
 - **`ItemDetail`** - 아이템 상세 정보 (옵션, 설명, 획득 방법)
+- **`ItemStatus`** - 아이템 상태 정보
 - **`SetItemInfo`** - 세트 아이템 정보 및 세트 효과
+- **`SetItem`** - 세트 아이템 개별 정보
+- **`SetItemOption`** - 세트 효과 옵션 정보
 - **`MultiItemInfo`** - 멀티 아이템(조각) 정보
+- **`MultiItem`** - 멀티 아이템 개별 정보
+- **`ItemShop`** - 아이템 상점 정보
+- **`PackageInfo`** - 패키지 정보
+- **`PackageItem`** - 패키지 아이템 정보
 - **`AuctionSearch`** - 경매장 현재 판매 중인 아이템
+- **`AuctionItem`** - 경매장 아이템 정보
 - **`AuctionSold`** - 경매장 판매 완료 내역
 
 #### 활동 기록
 - **`Timeline`** - 캐릭터의 최근 활동 기록 (던전 클리어, 아이템 획득 등)
+- **`TimelineItem`** - 개별 활동 기록 정보
+
+#### API 파라미터 타입
+던전앤파이터 API 호출을 위한 파라미터 타입들:
+
+- **`CharacterSearchParams`** - 캐릭터 검색 파라미터
+- **`CharacterBasicParams`** - 캐릭터 기본 정보 조회 파라미터
+- **`CharacterStatusParams`** - 캐릭터 능력치 조회 파라미터
+- **`CharacterEquipmentParams`** - 캐릭터 장비 조회 파라미터
+- **`CharacterAvatarParams`** - 캐릭터 아바타 조회 파라미터
+- **`CharacterCreatureParams`** - 캐릭터 크리처 조회 파라미터
+- **`CharacterFlagParams`** - 캐릭터 휘장 조회 파라미터
+- **`CharacterTalismanParams`** - 캐릭터 탈리스만 조회 파라미터
+- **`CharacterSkillParams`** - 캐릭터 스킬 조회 파라미터
+- **`CharacterBuffParams`** - 캐릭터 버프 조회 파라미터
+- **`ItemSearchParams`** - 아이템 검색 파라미터
+- **`ItemDetailParams`** - 아이템 상세 조회 파라미터
+- **`SetItemInfoParams`** - 세트 아이템 조회 파라미터
+- **`MultiItemInfoParams`** - 멀티 아이템 조회 파라미터
+- **`AuctionSearchParams`** - 경매장 검색 파라미터
+- **`AuctionSoldParams`** - 경매장 판매내역 조회 파라미터
+- **`CharacterTimelineParams`** - 캐릭터 타임라인 조회 파라미터
 
 ### 사이퍼즈 (Cyphers) 타입
 
@@ -318,6 +377,7 @@ try {
 
 - **`PlayerInfo`** - 플레이어 기본 정보 (닉네임, 레벨, 플레이 통계)
 - **`PlayerMatches`** - 플레이어의 최근 매치 기록 목록
+- **`MatchRecord`** - 개별 매치 기록 정보
 - **`RankingInfo`** - 전체 랭킹 정보 (TOP 랭커 목록)
 - **`PlayerRanking`** - 개별 플레이어의 랭킹 데이터 및 티어 정보
 
@@ -327,14 +387,18 @@ try {
 - **`MatchDetail`** - 매치 상세 정보 (게임 결과, 진행 시간, 맵 정보)
 - **`MatchTeam`** - 팀 정보 (팀원 구성, 팀 점수)
 - **`MatchPlayer`** - 매치 내 플레이어 개별 성과 (킬/데스, 데미지 등)
+- **`MatchPlayerItem`** - 매치 내 플레이어 아이템 정보
 - **`Position`** - 맵 내 플레이어 위치 좌표 정보
+- **`PositionMap`** - 위치 좌표 매핑 정보
 
 #### 아이템 및 장비 시스템
 배틀 아이템과 캐릭터 장비 관련 타입들:
 
 - **`ItemInfo`** - 배틀 아이템 기본 정보 (이름, 등급, 슬롯)
 - **`ItemDetail`** - 아이템 상세 정보 (효과, 획득 방법, 튜닝 정보)
+- **`ItemSearch`** - 아이템 검색 결과
 - **`PlayerEquipment`** - 플레이어가 장착한 배틀 아이템 세트
+- **`EquipmentSlot`** - 장비 슬롯 정보
 - **`ItemTuning`** - 아이템 튜닝 및 강화 정보
 
 #### 사이퍼 캐릭터 정보
@@ -344,14 +408,40 @@ try {
 - **`CypherDetail`** - 사이퍼 상세 정보 (스토리, 컨셉)
 - **`CypherAbility`** - 사이퍼의 능력치 정보
 - **`CypherSkill`** - 사이퍼의 스킬 목록 및 설명
+- **`CypherSearch`** - 사이퍼 검색 결과
 - **`CypherRecommendItem`** - 사이퍼별 추천 배틀 아이템 조합
+- **`RecommendItemSlot`** - 추천 아이템 슬롯 정보
+- **`RecommendItem`** - 개별 추천 아이템 정보
 
 #### 개발자 도구
 API 클라이언트 구현을 위한 인터페이스와 설정:
 
 - **`CyphersApiClient`** - 사이퍼즈 API 클라이언트 인터페이스 (구현 가이드라인)
 - **`CyphersApiConfig`** - API 클라이언트 설정 (API 키, 베이스 URL 등)
+- **`ApiRequestOptions`** - API 요청 옵션 (사이퍼즈 전용)
 - **`CYPHERS_API_ENDPOINTS`** - 모든 API 엔드포인트 상수 모음
+- **`CyphersApiEndpoint`** - 사이퍼즈 API 엔드포인트 타입
+
+#### API 파라미터 및 응답 타입
+사이퍼즈 API 호출을 위한 파라미터와 응답 타입들:
+
+- **`PlayerSearchParams`** - 플레이어 검색 파라미터
+- **`PlayerSearchResponse`** - 플레이어 검색 응답
+- **`PlayerSearchResult`** - 플레이어 검색 결과 개별 항목
+- **`PlayerInfoParams`** - 플레이어 정보 조회 파라미터
+- **`PlayerMatchesParams`** - 플레이어 매치 기록 조회 파라미터
+- **`MatchDetailParams`** - 매치 상세 조회 파라미터
+- **`RankingParams`** - 랭킹 조회 기본 파라미터
+- **`OverallRankingParams`** - 전체 랭킹 조회 파라미터
+- **`CharacterRankingParams`** - 캐릭터별 랭킹 조회 파라미터
+- **`ItemSearchParams`** - 아이템 검색 파라미터
+- **`ItemSearchResponse`** - 아이템 검색 응답
+- **`ItemSearchResult`** - 아이템 검색 결과 개별 항목
+- **`PlayerEquipmentParams`** - 플레이어 장비 조회 파라미터
+- **`CypherInfoParams`** - 사이퍼 정보 조회 파라미터
+- **`CypherInfoResponse`** - 사이퍼 정보 조회 응답
+- **`CypherSearchResult`** - 사이퍼 검색 결과 개별 항목
+- **`RecommendItemParams`** - 추천 아이템 조회 파라미터
 
 ### 동일한 이름의 타입 구분하기
 

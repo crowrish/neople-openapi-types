@@ -27,7 +27,7 @@ export interface SkillStyleInfo {
   option: {
     level: number;
     description: string;
-    values?: any[];
+    values?: string[];
   };
 }
 
@@ -37,7 +37,7 @@ export interface SkillInfo {
   option: {
     level: number;
     description: string;
-    values?: any[];
+    values?: string[];
   };
   requiredLevel: number;
   costType: string;
@@ -71,7 +71,7 @@ export interface BuffSkill {
       description: string;
     };
   };
-  status?: any[];
+  status?: { name: string; value: number | string }[];
 }
 
 export interface BuffEquipment {
@@ -79,13 +79,13 @@ export interface BuffEquipment {
     reinforce: number;
     amplification: number;
   };
-  status?: any[];
+  status?: { name: string; value: number | string }[];
 }
 
 export interface BuffAvatar {
-  status?: any[];
+  status?: { name: string; value: number | string }[];
 }
 
 export interface BuffCreature {
-  status?: any[];
+  status?: { name: string; value: number | string }[];
 }

@@ -65,7 +65,7 @@ export interface CharacterCreatureParams {
   characterId: string;
 }
 
-/** 캐릭터 국기 정보 조회 파라미터
+/** 캐릭터 휘장 정보 조회 파라미터
  * @endpoint GET /df/servers/{serverId}/characters/{characterId}/equip/flag
  */
 export interface CharacterFlagParams {

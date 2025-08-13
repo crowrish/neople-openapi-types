@@ -2,8 +2,8 @@ export type CyphersItemRarity = '101' | '102' | '103' | '104';
 
 export const CYPHERS_ITEM_RARITIES: Record<CyphersItemRarity, string> = {
   '101': '일반',
-  '102': '고급',
-  '103': '희귀',
+  '102': '언커먼',
+  '103': '레어',
   '104': '유니크'
 };
 

@@ -98,3 +98,7 @@ temp/
 
 # Claude Code memory file
 CLAUDE.md
+
+# API test documentation
+NEOPLE_API_TEST_RESULTS.md
+neople_openapi_list.md
