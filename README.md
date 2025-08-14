@@ -1,5 +1,8 @@
 # neople-openapi-types
 
+<img width="1200" height="400" alt="Frame 3" src="https://github.com/user-attachments/assets/31af878e-f425-4b54-b7e2-bebd2e73e897" />
+
+
 [네오플 Open API](https://developers.neople.co.kr/)를 위한 포괄적인 TypeScript 타입 정의 라이브러리입니다.
 
 ## 설치
