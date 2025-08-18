@@ -114,14 +114,6 @@ export interface ItemSearchResult {
   seasonCode: string;
 }
 
-/** 플레이어 장비 정보 조회 파라미터
- * @endpoint GET /cy/players/{playerId}/battleitems
- */
-export interface PlayerEquipmentParams {
-  /** 플레이어 ID */
-  playerId: string;
-}
-
 /** 사이퍼 정보 조회 파라미터
  * @endpoint GET /cy/characters?characterId={characterId}&wordType={wordType}&limit={limit}
  */
@@ -148,10 +140,80 @@ export interface CypherSearchResult {
   position: string;
 }
 
-/** 추천 아이템 조회 파라미터
- * @endpoint GET /cy/characters/{characterId}/items
+/** 투신전 랭킹 조회 파라미터
+ * @endpoint GET /cy/ranking/tsj/{tsjType}?limit={limit}&offset={offset}&playerId={playerId}
  */
-export interface RecommendItemParams {
+export interface TSJRankingParams extends RankingParams {
+  /** 투신전 타입 - melee: 격투, ranged: 파 */
+  tsjType: 'melee' | 'ranged';
+}
+
+/** 투신전 랭킹 응답 */
+export interface TSJRankingResponse extends ApiResponse<TSJRankingResult> {}
+
+/** 투신전 랭킹 결과 */
+export interface TSJRankingResult {
+  /** 순위 */
+  rank: number;
+  /** 이전 순위 */
+  beforeRank: number;
+  /** 플레이어 ID */
+  playerId: string;
+  /** 닉네임 */
+  nickname: string;
+  /** 랭킹 포인트 */
+  ratingPoint: number;
+  /** 승수 */
+  winCount: number;
+  /** 패수 */
+  loseCount: number;
+  /** 연승 기록 */
+  winningStreak: number;
+}
+
+/** 아이템 상세 정보 조회 파라미터
+ * @endpoint GET /cy/battleitems/{itemId}
+ */
+export interface ItemDetailParams {
+  /** 아이템 ID */
+  itemId: string;
+}
+
+/** 아이템 상세 정보 응답 */
+export interface ItemDetailResponse {
+  /** 아이템 ID */
+  itemId: string;
+  /** 아이템명 */
+  itemName: string;
   /** 캐릭터 ID */
   characterId: string;
+  /** 캐릭터명 */
+  characterName: string;
+  /** 희귀도 코드 */
+  rarityCode: string;
+  /** 희귀도명 */
+  rarityName: string;
+  /** 슬롯 코드 */
+  slotCode: string;
+  /** 슬롯명 */
+  slotName: string;
+  /** 시즌 코드 */
+  seasonCode: string;
+  /** 시즌명 */
+  seasonName: string;
+  /** 아이템 설명 */
+  explain: string;
+  /** 아이템 상세 설명 (레벨별 효과) */
+  explainDetail: string;
 }
+
+/** 다중 아이템 상세 정보 조회 파라미터
+ * @endpoint GET /cy/multi/battleitems?itemIds={itemIds}
+ */
+export interface MultiItemParams {
+  /** 쉼표로 구분된 아이템 ID 목록 */
+  itemIds: string;
+}
+
+/** 다중 아이템 상세 정보 응답 */
+export interface MultiItemResponse extends ApiResponse<ItemDetailResponse> {}

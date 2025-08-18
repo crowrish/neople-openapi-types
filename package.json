@@ -1,6 +1,6 @@
 {
   "name": "neople-openapi-types",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "TypeScript definitions for Neople Open API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,12 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist",
-    "prepublishOnly": "npm run clean && npm run build",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run clean && npm run typecheck && npm run lint && npm run build",
     "test": "echo \"No tests yet\" && exit 0"
   },
   "keywords": [
@@ -33,6 +38,12 @@
   "homepage": "https://github.com/crowrish/neople-openapi-types#readme",
   "devDependencies": {
     "@types/node": "^24.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.40.0",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
     "typescript": "^5.9.2"
   }
 }

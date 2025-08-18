@@ -112,3 +112,69 @@ export interface PackageItem {
   itemName: string;
   itemCount: number;
 }
+
+/** 아이템 해시태그 응답 */
+export interface ItemHashtagResponse {
+  /** 해시태그 목록 */
+  rows: string[];
+}
+
+/** 세트 아이템 검색 응답 */
+export interface SetItemSearchResponse {
+  /** 세트 아이템 목록 */
+  rows: SetItemSearchResult[];
+}
+
+/** 세트 아이템 검색 결과 */
+export interface SetItemSearchResult {
+  /** 세트 아이템 ID */
+  setItemId: string;
+  /** 세트 아이템명 */
+  setItemName: string;
+}
+
+/** 다중 세트 아이템 응답 */
+export interface MultiSetItemResponse {
+  /** 세트 아이템 목록 */
+  rows: SetItemDetailInfo[];
+}
+
+/** 세트 아이템 상세 정보 */
+export interface SetItemDetailInfo {
+  /** 세트 아이템 ID */
+  setItemId: string;
+  /** 세트 아이템명 */
+  setItemName: string;
+  /** 세트 구성 아이템 */
+  setItems: SetItemPiece[];
+  /** 세트 옵션 */
+  setItemOption: SetItemOption[];
+}
+
+/** 세트 구성 아이템 */
+export interface SetItemPiece {
+  /** 슬롯 ID */
+  slotId: string;
+  /** 슬롯명 */
+  slotName: string;
+  /** 아이템 ID */
+  itemId: string;
+  /** 아이템명 */
+  itemName: string;
+  /** 아이템 등급 */
+  itemRarity: string;
+}
+
+/** 세트 아이템 옵션 */
+export interface SetItemOption {
+  /** 옵션 설명 */
+  explain: string;
+  /** 상세 설명 */
+  detailExplain?: string;
+  /** 버프 설명 */
+  buffExplain?: string;
+  /** 버프 상세 설명 */
+  buffExplainDetail?: string;
+  /** 능력치 */
+  status: ItemStatus[];
+}

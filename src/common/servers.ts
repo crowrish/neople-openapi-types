@@ -1,6 +1,6 @@
-export type DFServer = 
+export type DFServer =
   | 'anton'
-  | 'bakal' 
+  | 'bakal'
   | 'cain'
   | 'casillas'
   | 'diregie'
@@ -16,12 +16,12 @@ export const DF_SERVERS: Record<DFServer, string> = {
   diregie: '디레지에',
   hilder: '힐더',
   prey: '프레이',
-  siroco: '시로코'
+  siroco: '시로코',
 };
 
 export type CyphersGameType = 'rating' | 'normal';
 
 export const CYPHERS_GAME_TYPES: Record<CyphersGameType, string> = {
   rating: '랭킹',
-  normal: '일반'
+  normal: '일반',
 };

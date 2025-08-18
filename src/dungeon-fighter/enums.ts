@@ -1,6 +1,6 @@
-export type DFItemRarity = 
+export type DFItemRarity =
   | 'common'
-  | 'uncommon' 
+  | 'uncommon'
   | 'rare'
   | 'unique'
   | 'epic'
@@ -16,5 +16,5 @@ export const DF_ITEM_RARITIES: Record<DFItemRarity, string> = {
   epic: '에픽',
   chronicle: '크로니클',
   legendary: '레전더리',
-  myth: '신화'
+  myth: '신화',
 };

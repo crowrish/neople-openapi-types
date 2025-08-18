@@ -11,10 +11,10 @@
 npm install -D neople-openapi-types
 ```
 
-## 지원 게임
+## 🎮 지원 게임
 
-- **던전앤파이터 (Dungeon Fighter Online)**
-- **사이퍼즈 (Cyphers)**
+- **던전앤파이터 (Dungeon Fighter Online)** - 34개 API 엔드포인트
+- **사이퍼즈 (Cyphers)** - 11개 API 엔드포인트
 
 ## 사용법
 
@@ -178,36 +178,127 @@ try {
 
 모든 타입 정의에는 실제 API 엔드포인트가 JSDoc으로 문서화되어 있습니다:
 
-### 사이퍼즈 API 엔드포인트
+### 사이퍼즈 API
+#### 플레이어 & 매치
+- **플레이어 검색** `GET /cy/players`  
+  `PlayerSearchParams` → `PlayerSearchResponse`
+- **플레이어 정보** `GET /cy/players/{playerId}`  
+  `PlayerInfoParams` → `PlayerInfo`
+- **매치 기록** `GET /cy/players/{playerId}/matches`  
+  `PlayerMatchesParams` → `PlayerMatches`
+- **매치 상세** `GET /cy/matches/{matchId}`  
+  `MatchDetailParams` → `MatchDetail`
 
-| 기능 | 타입 |
-|------|------|
-| 플레이어 검색<br>`GET /cy/players` | `PlayerSearchParams` |
-| 플레이어 정보<br>`GET /cy/players/{playerId}` | `PlayerInfoParams` |
-| 매치 기록<br>`GET /cy/players/{playerId}/matches` | `PlayerMatchesParams` |
-| 매치 상세<br>`GET /cy/matches/{matchId}` | `MatchDetailParams` |
-| 전체 랭킹<br>`GET /cy/ranking/ratingpoint` | `OverallRankingParams` |
-| 캐릭터별 랭킹<br>`GET /cy/ranking/characters/{characterId}/{rankingType}` | `CharacterRankingParams` |
-| 아이템 검색<br>`GET /cy/battleitems` | `ItemSearchParams` |
-| 플레이어 장비<br>`GET /cy/players/{playerId}/battleitems` | `PlayerEquipmentParams` |
-| 사이퍼 정보<br>`GET /cy/characters` | `CypherInfoParams` |
-| 추천 아이템<br>`GET /cy/characters/{characterId}/items` | `RecommendItemParams` |
+#### 랭킹
+- **전체 랭킹** `GET /cy/ranking/ratingpoint`  
+  `OverallRankingParams` → `RankingInfo`
+- **캐릭터별 랭킹** `GET /cy/ranking/characters/{characterId}/{rankingType}`  
+  `CharacterRankingParams` → `RankingInfo`
+- **투신전 랭킹** `GET /cy/ranking/tsj/{tsjType}`  
+  `TSJRankingParams` → `TSJRankingResponse`
 
-### 던전앤파이터 API 엔드포인트
+#### 아이템 & 사이퍼
+- **아이템 검색** `GET /cy/battleitems`  
+  `ItemSearchParams` → `ItemSearchResponse`
+- **아이템 상세** `GET /cy/battleitems/{itemId}`  
+  `ItemDetailParams` → `ItemDetailResponse`
+- **다중 아이템** `GET /cy/multi/battleitems`  
+  `MultiItemParams` → `MultiItemResponse`
+- **사이퍼 정보** `GET /cy/characters`  
+  `CypherInfoParams` → `CypherInfoResponse`
 
-| 기능 | 타입 |
-|------|------|
-| 캐릭터 검색<br>`GET /df/servers/{serverId}/characters` | `CharacterSearchParams` |
-| 캐릭터 기본정보<br>`GET /df/servers/{serverId}/characters/{characterId}` | `CharacterBasicParams` |
-| 캐릭터 능력치<br>`GET /df/servers/{serverId}/characters/{characterId}/status` | `CharacterStatusParams` |
-| 캐릭터 장비<br>`GET /df/servers/{serverId}/characters/{characterId}/equip/equipment` | `CharacterEquipmentParams` |
-| 캐릭터 아바타<br>`GET /df/servers/{serverId}/characters/{characterId}/equip/avatar` | `CharacterAvatarParams` |
-| 캐릭터 스킬<br>`GET /df/servers/{serverId}/characters/{characterId}/skill/style` | `CharacterSkillParams` |
-| 아이템 검색<br>`GET /df/items` | `ItemSearchParams` |
-| 아이템 상세<br>`GET /df/items/{itemId}` | `ItemDetailParams` |
-| 경매장 검색<br>`GET /df/auction` | `AuctionSearchParams` |
-| 경매장 판매내역<br>`GET /df/auction-sold` | `AuctionSoldParams` |
-| 타임라인<br>`GET /df/servers/{serverId}/characters/{characterId}/timeline` | `CharacterTimelineParams` |
+### 던전앤파이터 API
+
+#### 서버 & 캐릭터 기본
+- **서버 목록** `GET /df/servers`  
+  → `ServerListResponse`
+- **캐릭터 검색** `GET /df/servers/{serverId}/characters`  
+  `CharacterSearchParams` → `CharacterSearchResponse`
+- **캐릭터 기본정보** `GET /df/servers/{serverId}/characters/{characterId}`  
+  `CharacterBasicParams` → `CharacterBasicResponse`
+- **캐릭터 타임라인** `GET /df/servers/{serverId}/characters/{characterId}/timeline`  
+  `CharacterTimelineParams` → `CharacterTimelineResponse`
+- **캐릭터 능력치** `GET /df/servers/{serverId}/characters/{characterId}/status`  
+  `CharacterStatusParams` → `CharacterStatusResponse`
+- **캐릭터 명성 검색** `GET /df/servers/{serverId}/characters-fame`  
+  `CharacterFameSearchParams` → `CharacterFameSearchResponse`
+
+#### 캐릭터 장비
+- **캐릭터 장비** `GET /df/servers/{serverId}/characters/{characterId}/equip/equipment`  
+  `CharacterEquipmentParams` → `CharacterEquipmentResponse`
+- **캐릭터 아바타** `GET /df/servers/{serverId}/characters/{characterId}/equip/avatar`  
+  `CharacterAvatarParams` → `CharacterAvatarResponse`
+- **캐릭터 크리처** `GET /df/servers/{serverId}/characters/{characterId}/equip/creature`  
+  `CharacterCreatureParams` → `CharacterCreatureResponse`
+- **캐릭터 휘장** `GET /df/servers/{serverId}/characters/{characterId}/equip/flag`  
+  `CharacterFlagParams` → `CharacterFlagResponse`
+
+#### 캐릭터 스킬 & 버프
+- **캐릭터 스킬 스타일** `GET /df/servers/{serverId}/characters/{characterId}/skill/style`  
+  `CharacterSkillStyleParams` → `CharacterSkillStyleResponse`
+- **캐릭터 버프 장비** `GET /df/servers/{serverId}/characters/{characterId}/skill/buff/equip/equipment`  
+  `CharacterBuffEquipmentParams` → `CharacterBuffEquipmentResponse`
+- **캐릭터 버프 아바타** `GET /df/servers/{serverId}/characters/{characterId}/skill/buff/equip/avatar`  
+  `CharacterBuffAvatarParams` → `CharacterBuffAvatarResponse`
+- **캐릭터 버프 크리처** `GET /df/servers/{serverId}/characters/{characterId}/skill/buff/equip/creature`  
+  `CharacterBuffCreatureParams` → `CharacterBuffCreatureResponse`
+
+#### 경매장
+- **경매장 검색** `GET /df/auction`  
+  `AuctionSearchParams` → `AuctionSearchResponse`
+- **경매장 상세** `GET /df/auction/{auctionNo}`  
+  `AuctionDetailParams` → `AuctionDetailResponse`
+- **경매장 판매내역** `GET /df/auction-sold`  
+  `AuctionSoldParams` → `AuctionSoldResponse`
+
+#### 아바타 마켓
+- **아바타 마켓 판매상품** `GET /df/avatar-market/sale`  
+  `AvatarMarketSaleParams` → `AvatarMarketSaleResponse`
+- **아바타 마켓 상품상세** `GET /df/avatar-market/sale/{goodsNo}`  
+  `AvatarMarketSaleDetailParams` → `AvatarMarketSaleDetailResponse`
+- **아바타 마켓 판매내역** `GET /df/avatar-market/sold`  
+  `AvatarMarketSoldParams` → `AvatarMarketSoldResponse`
+- **아바타 마켓 판매완료상품** `GET /df/avatar-market/sold/{goodsNo}`  
+  `AvatarMarketSoldDetailParams` → `AvatarMarketSoldDetailResponse`
+- **아바타 마켓 해시태그** `GET /df/avatar-market/hashtag`  
+  `AvatarMarketHashtagParams` → `AvatarMarketHashtagResponse`
+
+#### 아이템
+- **아이템 검색** `GET /df/items`  
+  `ItemSearchParams` → `ItemSearchResponse`
+- **아이템 상세** `GET /df/items/{itemId}`  
+  `ItemDetailParams` → `ItemDetailResponse`
+- **아이템 상점정보** `GET /df/items/{itemId}/shop`  
+  `ItemShopParams` → `ItemShopResponse`
+- **다중 아이템** `GET /df/multi/items`  
+  `MultiItemParams` → `MultiItemInfoResponse`
+- **아이템 해시태그** `GET /df/item-hashtag`  
+  `ItemHashtagParams` → `ItemHashtagResponse`
+
+#### 세트 아이템
+- **세트아이템 검색** `GET /df/setitems`  
+  `SetItemSearchParams` → `SetItemSearchResponse`
+- **세트아이템 상세** `GET /df/setitems/{setItemId}`  
+  `SetItemParams` → `SetItemInfoResponse`
+- **다중 세트아이템** `GET /df/multi/setitems`  
+  `MultiSetItemParams` → `MultiSetItemResponse`
+
+#### 직업 & 스킬
+- **직업 목록** `GET /df/jobs`  
+  → `JobListResponse`
+- **직업별 스킬목록** `GET /df/skills/{jobId}`  
+  `JobSkillListParams` → `JobSkillListResponse`
+- **스킬 상세** `GET /df/skills/{jobId}/{skillId}`  
+  `SkillDetailParams` → `SkillDetailResponse`
+- **다중 스킬** `GET /df/multi/skills/{jobId}`  
+  `MultiSkillParams` → `MultiSkillResponse`
+
+## 📊 API 커버리지 상태
+
+### ✅ 완료된 구현
+- **던전앤파이터**: 34/34 엔드포인트 (100%) - 파라미터 + 응답 타입 완료
+- **사이퍼즈**: 11/11 엔드포인트 (100%) - 파라미터 + 응답 타입 완료
+- **총 45개 API 엔드포인트 완전 지원**
 
 ## 주요 타입
 
@@ -352,26 +443,51 @@ try {
 - **`Timeline`** - 캐릭터의 최근 활동 기록 (던전 클리어, 아이템 획득 등)
 - **`TimelineItem`** - 개별 활동 기록 정보
 
-#### API 파라미터 타입
-던전앤파이터 API 호출을 위한 파라미터 타입들:
+#### API 파라미터 및 응답 타입
+던전앤파이터 API 호출을 위한 완전한 타입 지원 (34개 엔드포인트):
 
-- **`CharacterSearchParams`** - 캐릭터 검색 파라미터
-- **`CharacterBasicParams`** - 캐릭터 기본 정보 조회 파라미터
-- **`CharacterStatusParams`** - 캐릭터 능력치 조회 파라미터
-- **`CharacterEquipmentParams`** - 캐릭터 장비 조회 파라미터
-- **`CharacterAvatarParams`** - 캐릭터 아바타 조회 파라미터
-- **`CharacterCreatureParams`** - 캐릭터 크리처 조회 파라미터
-- **`CharacterFlagParams`** - 캐릭터 휘장 조회 파라미터
-- **`CharacterTalismanParams`** - 캐릭터 탈리스만 조회 파라미터
-- **`CharacterSkillParams`** - 캐릭터 스킬 조회 파라미터
-- **`CharacterBuffParams`** - 캐릭터 버프 조회 파라미터
-- **`ItemSearchParams`** - 아이템 검색 파라미터
-- **`ItemDetailParams`** - 아이템 상세 조회 파라미터
-- **`SetItemInfoParams`** - 세트 아이템 조회 파라미터
-- **`MultiItemInfoParams`** - 멀티 아이템 조회 파라미터
-- **`AuctionSearchParams`** - 경매장 검색 파라미터
-- **`AuctionSoldParams`** - 경매장 판매내역 조회 파라미터
-- **`CharacterTimelineParams`** - 캐릭터 타임라인 조회 파라미터
+**캐릭터 시스템 (14개 엔드포인트)**
+- **`CharacterSearchParams`** / **`CharacterSearchResponse`** - 캐릭터 검색
+- **`CharacterBasicParams`** / **`CharacterBasicResponse`** - 캐릭터 기본 정보 조회
+- **`CharacterTimelineParams`** / **`CharacterTimelineResponse`** - 캐릭터 타임라인 조회
+- **`CharacterStatusParams`** / **`CharacterStatusResponse`** - 캐릭터 능력치 조회
+- **`CharacterEquipmentParams`** / **`CharacterEquipmentResponse`** - 캐릭터 장비 조회
+- **`CharacterAvatarParams`** / **`CharacterAvatarResponse`** - 캐릭터 아바타 조회
+- **`CharacterCreatureParams`** / **`CharacterCreatureResponse`** - 캐릭터 크리처 조회
+- **`CharacterFlagParams`** / **`CharacterFlagResponse`** - 캐릭터 휘장 조회
+- **`CharacterSkillStyleParams`** / **`CharacterSkillStyleResponse`** - 캐릭터 스킬 스타일 조회
+- **`CharacterBuffEquipmentParams`** / **`CharacterBuffEquipmentResponse`** - 버프 스킬 강화 장비 조회
+- **`CharacterBuffAvatarParams`** / **`CharacterBuffAvatarResponse`** - 버프 스킬 강화 아바타 조회
+- **`CharacterBuffCreatureParams`** / **`CharacterBuffCreatureResponse`** - 버프 스킬 강화 크리처 조회
+- **`CharacterFameSearchParams`** / **`CharacterFameSearchResponse`** - 캐릭터 명성 검색
+
+**경매장 시스템 (3개 엔드포인트)**
+- **`AuctionSearchParams`** / **`AuctionSearchResponse`** - 경매장 검색
+- **`AuctionDetailParams`** / **`AuctionDetailResponse`** - 경매장 상세 조회
+- **`AuctionSoldParams`** / **`AuctionSoldResponse`** - 경매장 판매내역 조회
+
+**아바타 마켓 (5개 엔드포인트)**
+- **`AvatarMarketSaleParams`** / **`AvatarMarketSaleResponse`** - 아바타 마켓 판매 상품
+- **`AvatarMarketSaleDetailParams`** / **`AvatarMarketSaleDetailResponse`** - 아바타 마켓 상품 상세
+- **`AvatarMarketSoldParams`** / **`AvatarMarketSoldResponse`** - 아바타 마켓 판매 내역
+- **`AvatarMarketSoldDetailParams`** / **`AvatarMarketSoldDetailResponse`** - 아바타 마켓 판매 완료 상품
+- **`AvatarMarketHashtagParams`** / **`AvatarMarketHashtagResponse`** - 아바타 마켓 해시태그
+
+**아이템 시스템 (8개 엔드포인트)**
+- **`ItemSearchParams`** / **`ItemSearchResponse`** - 아이템 검색
+- **`ItemDetailParams`** / **`ItemDetailResponse`** - 아이템 상세 조회
+- **`ItemShopParams`** / **`ItemShopResponse`** - 아이템 상점 정보
+- **`MultiItemParams`** / **`MultiItemInfoResponse`** - 다중 아이템 조회
+- **`ItemHashtagParams`** / **`ItemHashtagResponse`** - 아이템 해시태그
+- **`SetItemSearchParams`** / **`SetItemSearchResponse`** - 세트 아이템 검색
+- **`SetItemParams`** / **`SetItemInfoResponse`** - 세트 아이템 조회
+- **`MultiSetItemParams`** / **`MultiSetItemResponse`** - 다중 세트 아이템 조회
+
+**직업 및 스킬 시스템 (4개 엔드포인트)**
+- **`JobListResponse`** - 직업 목록 조회
+- **`JobSkillListParams`** / **`JobSkillListResponse`** - 직업별 스킬 목록 조회
+- **`SkillDetailParams`** / **`SkillDetailResponse`** - 스킬 상세 정보 조회
+- **`MultiSkillParams`** / **`MultiSkillResponse`** - 다중 스킬 조회
 
 ### 사이퍼즈 (Cyphers) 타입
 
@@ -382,6 +498,7 @@ try {
 - **`PlayerMatches`** - 플레이어의 최근 매치 기록 목록
 - **`MatchRecord`** - 개별 매치 기록 정보
 - **`RankingInfo`** - 전체 랭킹 정보 (TOP 랭커 목록)
+- **`TSJRankingResponse`** - 투신전 랭킹 응답 (v0.3.0 추가)
 - **`PlayerRanking`** - 개별 플레이어의 랭킹 데이터 및 티어 정보
 
 #### 매치 및 게임 데이터
@@ -399,9 +516,9 @@ try {
 
 - **`ItemInfo`** - 배틀 아이템 기본 정보 (이름, 등급, 슬롯)
 - **`ItemDetail`** - 아이템 상세 정보 (효과, 획득 방법, 튜닝 정보)
+- **`ItemDetailResponse`** - 아이템 상세 조회 응답 (v0.3.0 추가)
+- **`MultiItemResponse`** - 다중 아이템 조회 응답 (v0.3.0 추가)
 - **`ItemSearch`** - 아이템 검색 결과
-- **`PlayerEquipment`** - 플레이어가 장착한 배틀 아이템 세트
-- **`EquipmentSlot`** - 장비 슬롯 정보
 - **`ItemTuning`** - 아이템 튜닝 및 강화 정보
 
 #### 사이퍼 캐릭터 정보

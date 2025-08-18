@@ -1,5 +1,5 @@
-import { 
-  PlayerSearchParams, 
+import {
+  PlayerSearchParams,
   PlayerSearchResponse,
   PlayerInfoParams,
   PlayerMatchesParams,
@@ -8,51 +8,36 @@ import {
   CharacterRankingParams,
   ItemSearchParams,
   ItemSearchResponse,
-  PlayerEquipmentParams,
   CypherInfoParams,
   CypherInfoResponse,
-  RecommendItemParams
 } from './api';
-import {
-  PlayerInfo,
-  PlayerMatches,
-  MatchDetail,
-  RankingInfo,
-  PlayerEquipment,
-  CypherRecommendItem
-} from './index';
+import { PlayerInfo, PlayerMatches, MatchDetail, RankingInfo } from './index';
 
 /** 사이퍼즈 API 클라이언트 인터페이스 */
 export interface CyphersApiClient {
   /** 플레이어 검색 */
   searchPlayers(params: PlayerSearchParams): Promise<PlayerSearchResponse>;
-  
+
   /** 플레이어 기본 정보 조회 */
   getPlayerInfo(params: PlayerInfoParams): Promise<PlayerInfo>;
-  
+
   /** 플레이어 매치 기록 조회 */
   getPlayerMatches(params: PlayerMatchesParams): Promise<PlayerMatches>;
-  
+
   /** 매치 상세 정보 조회 */
   getMatchDetail(params: MatchDetailParams): Promise<MatchDetail>;
-  
+
   /** 전체 랭킹 조회 */
   getOverallRanking(params?: OverallRankingParams): Promise<RankingInfo>;
-  
+
   /** 캐릭터별 랭킹 조회 */
   getCharacterRanking(params: CharacterRankingParams): Promise<RankingInfo>;
-  
+
   /** 아이템 검색 */
   searchItems(params: ItemSearchParams): Promise<ItemSearchResponse>;
-  
-  /** 플레이어 장비 정보 조회 */
-  getPlayerEquipment(params: PlayerEquipmentParams): Promise<PlayerEquipment>;
-  
+
   /** 사이퍼(캐릭터) 정보 조회 */
   getCypherInfo(params?: CypherInfoParams): Promise<CypherInfoResponse>;
-  
-  /** 추천 아이템 조회 */
-  getRecommendItems(params: RecommendItemParams): Promise<CypherRecommendItem>;
 }
 
 /** API 클라이언트 설정 */
@@ -91,12 +76,9 @@ export const CYPHERS_API_ENDPOINTS = {
   CHARACTER_RANKING: '/cy/ranking/characters/{characterId}/{rankingType}',
   /** 아이템 검색 */
   ITEM_SEARCH: '/cy/battleitems',
-  /** 플레이어 장비 정보 */
-  PLAYER_EQUIPMENT: '/cy/players/{playerId}/battleitems',
   /** 사이퍼 정보 */
   CYPHER_INFO: '/cy/characters',
-  /** 추천 아이템 */
-  RECOMMEND_ITEMS: '/cy/characters/{characterId}/items'
 } as const;
 
-export type CyphersApiEndpoint = typeof CYPHERS_API_ENDPOINTS[keyof typeof CYPHERS_API_ENDPOINTS];
+export type CyphersApiEndpoint =
+  (typeof CYPHERS_API_ENDPOINTS)[keyof typeof CYPHERS_API_ENDPOINTS];

@@ -17,7 +17,7 @@ export enum HttpStatusCode {
   /** 서버 내부 오류 */
   INTERNAL_SERVER_ERROR = 500,
   /** 서비스 이용 불가 */
-  SERVICE_UNAVAILABLE = 503
+  SERVICE_UNAVAILABLE = 503,
 }
 
 /** 공통 API 에러 코드 */
@@ -43,7 +43,7 @@ export enum CommonApiErrorCode {
   /** 잘못된 요청 파라미터 */
   INVALID_REQUEST_PARAMETERS = 'API901',
   /** 시스템 오류 */
-  SYSTEM_ERROR = 'API999'
+  SYSTEM_ERROR = 'API999',
 }
 
 /** 던전앤파이터 에러 코드 */
@@ -69,7 +69,7 @@ export enum DnfErrorCode {
   /** 시스템 점검 */
   SYSTEM_MAINTENANCE = 'DNF980',
   /** 시스템 오류 */
-  SYSTEM_ERROR = 'DNF999'
+  SYSTEM_ERROR = 'DNF999',
 }
 
 /** 사이퍼즈 에러 코드 */
@@ -93,14 +93,11 @@ export enum CyphersErrorCode {
   /** 시스템 점검 */
   SYSTEM_MAINTENANCE = 'CY980',
   /** 시스템 오류 */
-  SYSTEM_ERROR = 'CY999'
+  SYSTEM_ERROR = 'CY999',
 }
 
 /** 모든 API 에러 코드 유니온 타입 */
-export type ApiErrorCode = 
-  | CommonApiErrorCode 
-  | DnfErrorCode 
-  | CyphersErrorCode;
+export type ApiErrorCode = CommonApiErrorCode | DnfErrorCode | CyphersErrorCode;
 
 /** HTTP 상태 코드와 에러 코드 매핑 */
 export const HTTP_STATUS_TO_ERROR: Record<HttpStatusCode, string> = {
@@ -112,7 +109,7 @@ export const HTTP_STATUS_TO_ERROR: Record<HttpStatusCode, string> = {
   [HttpStatusCode.METHOD_NOT_ALLOWED]: '메서드 허용 안됨',
   [HttpStatusCode.TOO_MANY_REQUESTS]: '요청 한도 초과',
   [HttpStatusCode.INTERNAL_SERVER_ERROR]: '서버 내부 오류',
-  [HttpStatusCode.SERVICE_UNAVAILABLE]: '서비스 이용 불가'
+  [HttpStatusCode.SERVICE_UNAVAILABLE]: '서비스 이용 불가',
 };
 
 /** 에러 코드별 메시지 */
@@ -129,7 +126,7 @@ export const ERROR_MESSAGES: Record<string, string> = {
   [CommonApiErrorCode.INVALID_URL]: '잘못된 URL입니다',
   [CommonApiErrorCode.INVALID_REQUEST_PARAMETERS]: '잘못된 요청 파라미터입니다',
   [CommonApiErrorCode.SYSTEM_ERROR]: '시스템 오류입니다',
-  
+
   // DNF Errors
   [DnfErrorCode.INVALID_SERVER_ID]: '잘못된 서버 ID입니다',
   [DnfErrorCode.INVALID_CHARACTER_INFO]: '잘못된 캐릭터 정보입니다',
@@ -137,12 +134,15 @@ export const ERROR_MESSAGES: Record<string, string> = {
   [DnfErrorCode.INVALID_AUCTION_MARKET_INFO]: '잘못된 경매장 정보입니다',
   [DnfErrorCode.INVALID_SKILL_INFO]: '잘못된 스킬 정보입니다',
   [DnfErrorCode.TIMELINE_SEARCH_ERROR]: '타임라인 검색 오류입니다',
-  [DnfErrorCode.AUCTION_ITEM_SEARCH_LIMIT]: '경매장 아이템 검색 한도를 초과했습니다',
-  [DnfErrorCode.MULTI_ITEM_SEARCH_LIMIT]: '멀티 아이템 검색 한도를 초과했습니다',
-  [DnfErrorCode.AVATAR_MARKET_TITLE_SEARCH_LIMIT]: '아바타 마켓 타이틀 검색 한도를 초과했습니다',
+  [DnfErrorCode.AUCTION_ITEM_SEARCH_LIMIT]:
+    '경매장 아이템 검색 한도를 초과했습니다',
+  [DnfErrorCode.MULTI_ITEM_SEARCH_LIMIT]:
+    '멀티 아이템 검색 한도를 초과했습니다',
+  [DnfErrorCode.AVATAR_MARKET_TITLE_SEARCH_LIMIT]:
+    '아바타 마켓 타이틀 검색 한도를 초과했습니다',
   [DnfErrorCode.SYSTEM_MAINTENANCE]: '시스템 점검 중입니다',
   [DnfErrorCode.SYSTEM_ERROR]: '시스템 오류입니다',
-  
+
   // Cyphers Errors
   [CyphersErrorCode.MATCHING_SEARCH_TIME_ERROR]: '매칭 검색 시간 오류입니다',
   [CyphersErrorCode.INVALID_PLAYER_INFO]: '잘못된 플레이어 정보입니다',
@@ -153,5 +153,5 @@ export const ERROR_MESSAGES: Record<string, string> = {
   [CyphersErrorCode.MATCHING_SEARCH_LIMIT]: '매칭 검색 한도를 초과했습니다',
   [CyphersErrorCode.RANKING_SEARCH_LIMIT]: '랭킹 검색 한도를 초과했습니다',
   [CyphersErrorCode.SYSTEM_MAINTENANCE]: '시스템 점검 중입니다',
-  [CyphersErrorCode.SYSTEM_ERROR]: '시스템 오류입니다'
+  [CyphersErrorCode.SYSTEM_ERROR]: '시스템 오류입니다',
 };

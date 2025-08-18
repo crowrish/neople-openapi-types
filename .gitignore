@@ -102,3 +102,7 @@ CLAUDE.md
 # API test documentation
 NEOPLE_API_TEST_RESULTS.md
 neople_openapi_list.md
+
+# API endpoint documentation files
+CYPHERS_API_ENDPOINTS.md
+DUNGEON_FIGHTER_API_ENDPOINTS.md
