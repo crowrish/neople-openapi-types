@@ -59,83 +59,47 @@ interface AuctionDetailResponse {
     itemName: string;
 }
 
-// @public (undocumented)
+// @public
 interface AuctionItem {
-    // (undocumented)
     amplificationName?: string;
-    // (undocumented)
     auctionExpireDate: string;
-    // (undocumented)
     auctionNo: number;
-    // (undocumented)
     auctionRegistDate: string;
-    // (undocumented)
     count: number;
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemGradeName?: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: DFItemRarity;
-    // (undocumented)
     itemType: string;
-    // (undocumented)
     itemTypeId: string;
-    // (undocumented)
     refine?: number;
-    // (undocumented)
     reinforce?: number;
-    // (undocumented)
     seller: string;
-    // (undocumented)
     unitPrice: number;
 }
 
-// @public (undocumented)
+// @public
 interface AuctionSearch {
-    // (undocumented)
     amplificationName?: string;
-    // (undocumented)
     itemGradeName?: string;
-    // (undocumented)
     itemId?: string;
-    // (undocumented)
     itemMaxLevel?: number;
-    // (undocumented)
     itemMinLevel?: number;
-    // (undocumented)
     itemName?: string;
-    // (undocumented)
     itemRarity?: DFItemRarity;
-    // (undocumented)
     itemTypeId?: string;
-    // (undocumented)
     limit?: number;
-    // (undocumented)
     maxAmplification?: number;
-    // (undocumented)
     maxPrice?: number;
-    // (undocumented)
     maxRefine?: number;
-    // (undocumented)
     maxReinforce?: number;
-    // (undocumented)
     minAmplification?: number;
-    // (undocumented)
     minPrice?: number;
-    // (undocumented)
     minRefine?: number;
-    // (undocumented)
     minReinforce?: number;
-    // (undocumented)
     next?: string;
-    // (undocumented)
     reinforce?: number;
-    // (undocumented)
     sort?: 'unitPrice' | 'reinforce' | 'amplificationName' | 'refine';
 }
 
@@ -167,39 +131,23 @@ interface AuctionSearchResponse {
     rows: any[];
 }
 
-// @public (undocumented)
+// @public
 interface AuctionSold {
-    // (undocumented)
     amplificationName?: string;
-    // (undocumented)
     auctionNo: number;
-    // (undocumented)
     buyer: string;
-    // (undocumented)
     count: number;
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemGradeName?: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: DFItemRarity;
-    // (undocumented)
     itemType: string;
-    // (undocumented)
     itemTypeId: string;
-    // (undocumented)
     refine?: number;
-    // (undocumented)
     reinforce?: number;
-    // (undocumented)
     seller: string;
-    // (undocumented)
     soldDate: string;
-    // (undocumented)
     unitPrice: number;
 }
 
@@ -336,41 +284,36 @@ interface AvatarMarketSoldResponse {
     rows: any[];
 }
 
-// @public (undocumented)
+// @public
 interface BuffAvatar {
-    // (undocumented)
     status?: {
         name: string;
         value: number | string;
     }[];
 }
 
-// @public (undocumented)
+// @public
 interface BuffCreature {
-    // (undocumented)
     status?: {
         name: string;
         value: number | string;
     }[];
 }
 
-// @public (undocumented)
+// @public
 interface BuffEquipment {
-    // (undocumented)
     reinforce?: {
         reinforce: number;
         amplification: number;
     };
-    // (undocumented)
     status?: {
         name: string;
         value: number | string;
     }[];
 }
 
-// @public (undocumented)
+// @public
 interface BuffSkill {
-    // (undocumented)
     skillInfo: {
         skillId: string;
         name: string;
@@ -379,7 +322,6 @@ interface BuffSkill {
             description: string;
         };
     };
-    // (undocumented)
     status?: {
         name: string;
         value: number | string;
@@ -445,34 +387,23 @@ interface CharacterBasicResponse {
     characterName: string;
 }
 
-// @public (undocumented)
+// @public
 interface CharacterBuff {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     buff: {
         skillBuff: BuffSkill;
         equipmentBuff: BuffEquipment;
         avatarBuff: BuffAvatar;
         creatureBuff: BuffCreature;
     };
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
 }
 
@@ -661,29 +592,18 @@ interface CharacterSearchResponse {
     rows: any[];
 }
 
-// @public (undocumented)
+// @public
 interface CharacterSkill {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
-    // (undocumented)
     skill: {
         style: SkillStyle;
         active: SkillInfo[];
@@ -807,61 +727,37 @@ interface CreatureInfo {
 
 // @public
 interface CypherAbility {
-    // (undocumented)
     armor: number;
-    // (undocumented)
     attackDamage: number;
-    // (undocumented)
     attackRange: number;
-    // (undocumented)
     attackSpeed: number;
-    // (undocumented)
     health: number;
-    // (undocumented)
     healthRegen: number;
-    // (undocumented)
     magicRegist: number;
-    // (undocumented)
     moveSpeed: number;
-    // (undocumented)
     resource: number;
-    // (undocumented)
     resourceRegen: number;
-    // (undocumented)
     skillAttackRange: number;
 }
 
 // @public
 interface CypherDetail extends CypherInfo {
-    // (undocumented)
     characterAbility?: CypherAbility;
-    // (undocumented)
     characterSkill?: CypherSkill[];
 }
 
 // @public
 interface CypherInfo {
-    // (undocumented)
     attackType: string;
-    // (undocumented)
     characterBackStory: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     characterVoice: string;
-    // (undocumented)
     damageType: string;
-    // (undocumented)
     mastery: string;
-    // (undocumented)
     position: string;
-    // (undocumented)
     resourceType: string;
-    // (undocumented)
     school: string;
-    // (undocumented)
     weapon: string;
 }
 
@@ -878,11 +774,8 @@ interface CypherInfoResponse extends ApiResponse<CypherSearchResult> {
 
 // @public
 interface CypherRecommendItem {
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     recommendItems: RecommendItemSlot[];
 }
 
@@ -992,37 +885,23 @@ type CyphersApiEndpoint = (typeof CYPHERS_API_ENDPOINTS)[keyof typeof CYPHERS_AP
 
 // @public
 interface CypherSearch {
-    // (undocumented)
     attackType: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     mastery: string;
-    // (undocumented)
     position: string;
-    // (undocumented)
     school: string;
-    // (undocumented)
     weapon: string;
 }
 
 // @public
 interface CypherSearchResult {
-    // (undocumented)
     attackType: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     mastery: string;
-    // (undocumented)
     position: string;
-    // (undocumented)
     school: string;
-    // (undocumented)
     weapon: string;
 }
 
@@ -1048,27 +927,16 @@ type CyphersItemRarity = '101' | '102' | '103' | '104';
 
 // @public
 interface CypherSkill {
-    // (undocumented)
     skillCoolTime: string;
-    // (undocumented)
     skillCostResource: string;
-    // (undocumented)
     skillExplain: string;
-    // (undocumented)
     skillExplainDetail: string;
-    // (undocumented)
     skillId: string;
-    // (undocumented)
     skillKeyword: string;
-    // (undocumented)
     skillName: string;
-    // (undocumented)
     skillRange: string;
-    // (undocumented)
     skillType: string;
-    // (undocumented)
     slotId: string;
-    // (undocumented)
     slotName: string;
 }
 
@@ -1270,13 +1138,9 @@ interface EquipmentItem {
 
 // @public
 interface EquipmentSlot {
-    // (undocumented)
     item?: ItemInfo;
-    // (undocumented)
     slotCode: string;
-    // (undocumented)
     slotName: string;
-    // (undocumented)
     tuning?: ItemTuning;
 }
 
@@ -1331,43 +1195,27 @@ export function isMaintenanceError(error: any): boolean;
 // @public
 export function isRateLimitError(error: any): boolean;
 
-// @public (undocumented)
+// @public
 interface ItemDetail {
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemExplain: string;
-    // (undocumented)
     itemExplainDetail: string;
-    // (undocumented)
     itemFlavorText: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemObtainInfo: string;
-    // (undocumented)
     itemRarity: DFItemRarity;
-    // (undocumented)
     itemStatus?: ItemStatus[];
-    // (undocumented)
     itemType: string;
-    // (undocumented)
     itemTypeId: string;
-    // (undocumented)
     setItemId?: string;
-    // (undocumented)
     setItemName?: string;
 }
 
 // @public
 interface ItemDetail_2 extends ItemInfo {
-    // (undocumented)
     itemHash?: string;
-    // (undocumented)
     obtainInfo?: string;
-    // (undocumented)
     tuning?: ItemTuning;
 }
 
@@ -1419,63 +1267,38 @@ interface ItemHashtagResponse {
 
 // @public
 interface ItemInfo {
-    // (undocumented)
     equipSlotCode: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemTypeCode: string;
-    // (undocumented)
     rarityCode: CyphersItemRarity;
-    // (undocumented)
     slotCode: string;
 }
 
-// @public (undocumented)
+// @public
 interface ItemSearch {
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemExplain: string;
-    // (undocumented)
     itemExplainDetail: string;
-    // (undocumented)
     itemFlavorText: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemObtainInfo: string;
-    // (undocumented)
     itemRarity: DFItemRarity;
-    // (undocumented)
     itemType: string;
-    // (undocumented)
     itemTypeId: string;
-    // (undocumented)
     setItemId?: string;
-    // (undocumented)
     setItemName?: string;
 }
 
 // @public
 interface ItemSearch_2 {
-    // (undocumented)
     equipSlotCode: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemTypeCode: string;
-    // (undocumented)
     rarityCode: CyphersItemRarity;
-    // (undocumented)
     seasonCode: string;
-    // (undocumented)
     slotCode: string;
 }
 
@@ -1509,47 +1332,29 @@ interface ItemSearchResponse_2 extends ApiResponse<ItemSearchResult> {
 
 // @public
 interface ItemSearchResult {
-    // (undocumented)
     equipSlotCode: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemTypeCode: string;
-    // (undocumented)
     rarityCode: string;
-    // (undocumented)
     seasonCode: string;
-    // (undocumented)
     slotCode: string;
 }
 
-// @public (undocumented)
+// @public
 interface ItemShop {
-    // (undocumented)
     cash?: {
         packages?: PackageInfo[];
     };
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemExplain: string;
-    // (undocumented)
     itemExplainDetail: string;
-    // (undocumented)
     itemFlavorText: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemObtainInfo: string;
-    // (undocumented)
     itemRarity: DFItemRarity;
-    // (undocumented)
     itemType: string;
-    // (undocumented)
     itemTypeId: string;
 }
 
@@ -1567,21 +1372,16 @@ interface ItemShopResponse {
     itemName: string;
 }
 
-// @public (undocumented)
+// @public
 interface ItemStatus {
-    // (undocumented)
     name: string;
-    // (undocumented)
     value: string;
 }
 
 // @public
 interface ItemTuning {
-    // (undocumented)
     explain: string;
-    // (undocumented)
     explain2: string;
-    // (undocumented)
     slotId: number;
 }
 
@@ -1625,22 +1425,16 @@ interface JobSkillListResponse {
 
 // @public
 interface MatchDetail {
-    // (undocumented)
     date: string;
-    // (undocumented)
     gameTypeId: CyphersGameType;
-    // (undocumented)
     matchId: string;
-    // (undocumented)
     playInfo: {
         playId: string;
         playTypeName: string;
         result: 'win' | 'lose';
         random: boolean;
     };
-    // (undocumented)
     position: Position[];
-    // (undocumented)
     teams: MatchTeam[];
 }
 
@@ -1651,159 +1445,92 @@ interface MatchDetailParams {
 
 // @public
 interface MatchPlayer {
-    // (undocumented)
     assistCount: number;
-    // (undocumented)
     attackPoint: number;
-    // (undocumented)
     backAttackCount: number;
-    // (undocumented)
     battlePoint: number;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     comboCount: number;
-    // (undocumented)
     damagePoint: number;
-    // (undocumented)
     deathCount: number;
-    // (undocumented)
     demolisherKillCount: number;
-    // (undocumented)
     healAmount: number;
-    // (undocumented)
     items: MatchPlayerItem[];
-    // (undocumented)
     killCount: number;
-    // (undocumented)
     level: number;
-    // (undocumented)
     nickname: string;
-    // (undocumented)
     playerId: string;
-    // (undocumented)
     sentinelKillCount: number;
-    // (undocumented)
     sightPoint: number;
-    // (undocumented)
     spellCount: number;
-    // (undocumented)
     towerAttackPoint: number;
 }
 
 // @public
 interface MatchPlayerItem {
-    // (undocumented)
     equipSlotCode: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemTypeCode: string;
-    // (undocumented)
     rarityCode: string;
-    // (undocumented)
     slotCode: string;
 }
 
 // @public
 interface MatchRecord {
-    // (undocumented)
     assistCount: number;
-    // (undocumented)
     attackPoint: number;
-    // (undocumented)
     backAttackCount: number;
-    // (undocumented)
     battlePoint: number;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     comboCount: number;
-    // (undocumented)
     damagePoint: number;
-    // (undocumented)
     deathCount: number;
-    // (undocumented)
     demolisherKillCount: number;
-    // (undocumented)
     healAmount: number;
-    // (undocumented)
     killCount: number;
-    // (undocumented)
     level: number;
-    // (undocumented)
     matchId: string;
-    // (undocumented)
     playTime: number;
-    // (undocumented)
     playTypeName: string;
-    // (undocumented)
     result: 'win' | 'lose';
-    // (undocumented)
     sentinelKillCount: number;
-    // (undocumented)
     sightPoint: number;
-    // (undocumented)
     spellCount: number;
-    // (undocumented)
     towerAttackPoint: number;
 }
 
 // @public
 interface MatchTeam {
-    // (undocumented)
     players: MatchPlayer[];
-    // (undocumented)
     result: 'win' | 'lose';
-    // (undocumented)
     teamId: string;
 }
 
-// @public (undocumented)
+// @public
 interface MultiItem {
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemExplain: string;
-    // (undocumented)
     itemFlavorText: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: DFItemRarity;
 }
 
-// @public (undocumented)
+// @public
 interface MultiItemInfo {
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemExplain: string;
-    // (undocumented)
     itemExplainDetail: string;
-    // (undocumented)
     itemFlavorText: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemObtainInfo: string;
-    // (undocumented)
     itemRarity: DFItemRarity;
-    // (undocumented)
     itemType: string;
-    // (undocumented)
     itemTypeId: string;
-    // (undocumented)
     multiItems?: MultiItem[];
 }
 
@@ -1871,23 +1598,17 @@ export class NeopleApiException extends Error implements NeopleApiError {
 interface OverallRankingParams extends RankingParams {
 }
 
-// @public (undocumented)
+// @public
 interface PackageInfo {
-    // (undocumented)
     packageId: string;
-    // (undocumented)
     packageItems?: PackageItem[];
-    // (undocumented)
     packageName: string;
 }
 
-// @public (undocumented)
+// @public
 interface PackageItem {
-    // (undocumented)
     itemCount: number;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
 }
 
@@ -1902,27 +1623,18 @@ export function parseApiError(error: any): NeopleApiError;
 
 // @public
 interface PlayerEquipment {
-    // (undocumented)
     clanName?: string;
-    // (undocumented)
     equipment: EquipmentSlot[];
-    // (undocumented)
     grade: number;
-    // (undocumented)
     nickname: string;
-    // (undocumented)
     playerId: string;
 }
 
 // @public
 interface PlayerInfo {
-    // (undocumented)
     clanName?: string;
-    // (undocumented)
     grade: number;
-    // (undocumented)
     nickname: string;
-    // (undocumented)
     playerId: string;
 }
 
@@ -1933,13 +1645,9 @@ interface PlayerInfoParams {
 
 // @public
 interface PlayerMatches {
-    // (undocumented)
     date: string;
-    // (undocumented)
     gameTypeId: CyphersGameType;
-    // (undocumented)
     matches: MatchRecord[];
-    // (undocumented)
     next?: string;
 }
 
@@ -1954,23 +1662,14 @@ interface PlayerMatchesParams extends PaginationParams {
 
 // @public
 interface PlayerRanking {
-    // (undocumented)
     grade: number;
-    // (undocumented)
     lose: number;
-    // (undocumented)
     nickname: string;
-    // (undocumented)
     playerId: string;
-    // (undocumented)
     rankingPoint: number;
-    // (undocumented)
     rp: number;
-    // (undocumented)
     stop: number;
-    // (undocumented)
     tierName: CyphersTier;
-    // (undocumented)
     win: number;
 }
 
@@ -1987,49 +1686,33 @@ interface PlayerSearchResponse extends ApiResponse<PlayerSearchResult> {
 
 // @public
 interface PlayerSearchResult {
-    // (undocumented)
     clanName?: string;
-    // (undocumented)
     grade: number;
-    // (undocumented)
     nickname: string;
-    // (undocumented)
     playerId: string;
 }
 
 // @public
 interface Position {
-    // (undocumented)
     attributeId: string;
-    // (undocumented)
     map: PositionMap[];
-    // (undocumented)
     nickname: string;
-    // (undocumented)
     playerId: string;
-    // (undocumented)
     positionName: string;
 }
 
 // @public
 interface PositionMap {
-    // (undocumented)
     time: number;
-    // (undocumented)
     x: number;
-    // (undocumented)
     y: number;
 }
 
 // @public
 interface RankingInfo {
-    // (undocumented)
     date: string;
-    // (undocumented)
     next?: string;
-    // (undocumented)
     rankingType: CyphersGameType;
-    // (undocumented)
     rows: PlayerRanking[];
 }
 
@@ -2042,25 +1725,17 @@ interface RankingParams {
 
 // @public
 interface RecommendItem {
-    // (undocumented)
     equipSlotCode: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemTypeCode: string;
-    // (undocumented)
     rarityCode: string;
 }
 
 // @public
 interface RecommendItemSlot {
-    // (undocumented)
     items: RecommendItem[];
-    // (undocumented)
     slotCode: string;
-    // (undocumented)
     slotName: string;
 }
 
@@ -2090,27 +1765,17 @@ interface ServerListResponse {
     rows: ServerInfo[];
 }
 
-// @public (undocumented)
+// @public
 interface SetItem {
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemExplain: string;
-    // (undocumented)
     itemExplainDetail: string;
-    // (undocumented)
     itemFlavorText: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemObtainInfo: string;
-    // (undocumented)
     itemRarity: DFItemRarity;
-    // (undocumented)
     itemType: string;
-    // (undocumented)
     itemTypeId: string;
 }
 
@@ -2122,15 +1787,11 @@ interface SetItemDetailInfo {
     setItems: SetItemPiece[];
 }
 
-// @public (undocumented)
+// @public
 interface SetItemInfo {
-    // (undocumented)
     setItemId: string;
-    // (undocumented)
     setItemName: string;
-    // (undocumented)
     setItemOption: SetItemOption[];
-    // (undocumented)
     setItems: SetItem[];
 }
 
@@ -2143,13 +1804,10 @@ interface SetItemInfoResponse {
     setItemName: string;
 }
 
-// @public (undocumented)
+// @public
 interface SetItemOption {
-    // (undocumented)
     setCount: number;
-    // (undocumented)
     setOption: string;
-    // (undocumented)
     setOptionFull: string;
 }
 
@@ -2218,21 +1876,16 @@ interface SkillDetailResponse {
     type: 'active' | 'passive';
 }
 
-// @public (undocumented)
+// @public
 interface SkillInfo {
-    // (undocumented)
     costType: string;
-    // (undocumented)
     name: string;
-    // (undocumented)
     option: {
         level: number;
         description: string;
         values?: string[];
     };
-    // (undocumented)
     requiredLevel: number;
-    // (undocumented)
     skillId: string;
 }
 
@@ -2251,25 +1904,20 @@ interface SkillLevelInfo {
     rows: SkillLevelDetail[];
 }
 
-// @public (undocumented)
+// @public
 interface SkillStyle {
-    // (undocumented)
     active?: SkillStyleInfo[];
-    // (undocumented)
     passive?: SkillStyleInfo[];
 }
 
-// @public (undocumented)
+// @public
 interface SkillStyleInfo {
-    // (undocumented)
     name: string;
-    // (undocumented)
     option: {
         level: number;
         description: string;
         values?: string[];
     };
-    // (undocumented)
     skillId: string;
 }
 
@@ -2283,37 +1931,24 @@ interface TalismanInfo {
     slotName: string;
 }
 
-// @public (undocumented)
+// @public
 interface Timeline {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
-    // (undocumented)
     timeline: TimelineItem[];
 }
 
-// @public (undocumented)
+// @public
 interface TimelineItem {
-    // (undocumented)
     code: string;
-    // (undocumented)
     data: {
         dungeonName?: string;
         level?: number;
@@ -2328,9 +1963,7 @@ interface TimelineItem {
         amplificationName?: string;
         refineLevel?: number;
     };
-    // (undocumented)
     date: string;
-    // (undocumented)
     name: string;
 }
 
