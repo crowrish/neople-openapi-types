@@ -4,10 +4,9 @@
 
 [네오플 Open API](https://developers.neople.co.kr/)를 위한 포괄적인 TypeScript 타입 정의 라이브러리입니다.
 
-## 📖 문서
+## 문서
 
-- **[온라인 API 문서](https://crowrish.github.io/neople-openapi-types/)** - 전체 타입 정의 문서
-- **[GitHub 저장소](https://github.com/crowrish/neople-openapi-types)** - 소스 코드 및 이슈 트래킹
+- **[API Docs](https://crowrish.github.io/neople-openapi-types/)** - 전체 타입 정의 문서
 
 ## 설치
 
@@ -15,7 +14,7 @@
 npm install -D neople-openapi-types
 ```
 
-## 🎮 지원 게임
+## 지원 게임
 
 - **던전앤파이터 (Dungeon Fighter Online)** - 34개 API 엔드포인트
 - **사이퍼즈 (Cyphers)** - 11개 API 엔드포인트
@@ -297,9 +296,9 @@ try {
 - **다중 스킬** `GET /df/multi/skills/{jobId}`  
   `MultiSkillParams` → `MultiSkillResponse`
 
-## 📊 API 커버리지 상태
+## API 커버리지 상태
 
-### ✅ 완료된 구현
+### 완료된 구현
 - **던전앤파이터**: 34/34 엔드포인트 (100%) - 파라미터 + 응답 타입 완료
 - **사이퍼즈**: 11/11 엔드포인트 (100%) - 파라미터 + 응답 타입 완료
 - **총 45개 API 엔드포인트 완전 지원**
@@ -655,39 +654,39 @@ npm run docs:generate # API 문서 생성
 npm run clean         # 빌드 결과물 정리
 ```
 
-## 🔄 버전 히스토리
+## 버전 히스토리
 
-### v0.5.0 (2025-01-19) - API 문서화 및 품질 개선
-- ✨ **[NEW]** Microsoft API Extractor 도입
+### v0.5.0 - API 문서화 및 품질 개선
+- **[NEW]** Microsoft API Extractor 도입
   - 통합 타입 선언 파일 생성 (`dist/neople-openapi-types.d.ts`)
   - API 변경사항 자동 추적 (`api-reports/`)
   - 버전 간 호환성 검증
-- 📖 **[NEW]** 자동 생성 API 문서
+- **[NEW]** 자동 생성 API 문서
   - GitHub Pages 지원 (`docs/` 폴더)
   - 모든 타입에 대한 상세 마크다운 문서
   - 온라인 문서: https://crowrish.github.io/neople-openapi-types/
-- 🔧 **[IMPROVED]** 개발 워크플로우 강화
+- **[IMPROVED]** 개발 워크플로우 강화
   - TSDoc 설정 최적화 (`tsdoc.json`)
   - 새로운 npm 스크립트: `build:full`, `docs:generate`
   - 배포 전 API 호환성 자동 검증
 
-### v0.4.0 (2025-01-18) - 코드 품질 관리
-- 🔧 **[NEW]** ESLint v9 + Prettier 설정
-- 🤖 **[NEW]** GitHub Actions PR 검증 워크플로우
-- 📝 **[IMPROVED]** README.md 테이블 형식 개선 (가독성 향상)
+### v0.4.0 - 코드 품질 관리
+- **[NEW]** ESLint v9 + Prettier 설정
+- **[NEW]** GitHub Actions PR 검증 워크플로우
+- **[IMPROVED]** README.md 테이블 형식 개선 (가독성 향상)
 
-### v0.3.0 (2025-01-19) - API 완전 지원
-- ✅ **[COMPLETE]** 던전앤파이터 API 34/34 엔드포인트 100% 지원
-- ✅ **[COMPLETE]** 사이퍼즈 API 11/11 엔드포인트 100% 지원
-- 🗑️ **[REMOVED]** 비실제 API 엔드포인트 2개 제거 (사이퍼즈)
-- 📋 **[NEW]** API 엔드포인트 문서 (`DUNGEON_FIGHTER_API_ENDPOINTS.md`, `CYPHERS_API_ENDPOINTS.md`)
+### v0.3.0 - API 완전 지원
+- **[COMPLETE]** 던전앤파이터 API 34/34 엔드포인트 100% 지원
+- **[COMPLETE]** 사이퍼즈 API 11/11 엔드포인트 100% 지원
+- **[REMOVED]** 비실제 API 엔드포인트 2개 제거 (사이퍼즈)
+- **[NEW]** API 엔드포인트 문서 (`DUNGEON_FIGHTER_API_ENDPOINTS.md`, `CYPHERS_API_ENDPOINTS.md`)
 
 ### v0.2.0 - 타입 구조 개선
-- 🔄 **[REFACTOR]** 게임별 네임스페이스 분리
-- ✨ **[NEW]** 전용 enum 타입 추가
+- **[REFACTOR]** 게임별 네임스페이스 분리
+- **[NEW]** 전용 enum 타입 추가
 
 ### v0.1.0 - 초기 릴리즈
-- 🎮 던전앤파이터 + 사이퍼즈 기본 타입 지원
+- 던전앤파이터 + 사이퍼즈 기본 타입 지원
 
 ## 라이선스
 
