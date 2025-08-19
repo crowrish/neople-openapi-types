@@ -17,9 +17,13 @@ export interface PlayerSearchResponse extends ApiResponse<PlayerSearchResult> {}
 
 /** 플레이어 검색 결과 */
 export interface PlayerSearchResult {
+  /** 플레이어 ID */
   playerId: string;
+  /** 닉네임 */
   nickname: string;
+  /** 등급 */
   grade: number;
+  /** 클란명 */
   clanName?: string;
 }
 
@@ -105,12 +109,19 @@ export interface ItemSearchResponse extends ApiResponse<ItemSearchResult> {}
 
 /** 아이템 검색 결과 */
 export interface ItemSearchResult {
+  /** 아이템 ID */
   itemId: string;
+  /** 아이템명 */
   itemName: string;
+  /** 슬롯 코드 */
   slotCode: string;
+  /** 희귀도 코드 */
   rarityCode: string;
+  /** 장비 슬롯 코드 */
   equipSlotCode: string;
+  /** 아이템 타입 코드 */
   itemTypeCode: string;
+  /** 시즌 코드 */
   seasonCode: string;
 }
 
@@ -131,12 +142,19 @@ export interface CypherInfoResponse extends ApiResponse<CypherSearchResult> {}
 
 /** 사이퍼 검색 결과 */
 export interface CypherSearchResult {
+  /** 캐릭터 ID */
   characterId: string;
+  /** 캐릭터명 */
   characterName: string;
+  /** 학교 */
   school: string;
+  /** 마스터리 */
   mastery: string;
+  /** 무기 */
   weapon: string;
+  /** 공격 타입 */
   attackType: string;
+  /** 포지션 */
   position: string;
 }
 

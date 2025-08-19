@@ -1,92 +1,159 @@
+/** 캐릭터 스킬 정보 */
 export interface CharacterSkill {
+  /** 캐릭터 고유 ID */
   characterId: string;
+  /** 캐릭터명 */
   characterName: string;
+  /** 캐릭터 레벨 */
   level: number;
+  /** 직업 ID */
   jobId: string;
+  /** 전직 ID */
   jobGrowId: string;
+  /** 직업명 */
   jobName: string;
+  /** 전직명 */
   jobGrowName: string;
+  /** 모험가명 */
   adventureName: string;
+  /** 길드 ID */
   guildId?: string;
+  /** 길드명 */
   guildName?: string;
+  /** 스킬 정보 */
   skill: {
+    /** 스킬 스타일 */
     style: SkillStyle;
+    /** 액티브 스킬 목록 */
     active: SkillInfo[];
+    /** 패시브 스킬 목록 */
     passive: SkillInfo[];
   };
 }
 
+/** 스킬 스타일 정보 */
 export interface SkillStyle {
+  /** 액티브 스킬 스타일 */
   active?: SkillStyleInfo[];
+  /** 패시브 스킬 스타일 */
   passive?: SkillStyleInfo[];
 }
 
+/** 스킬 스타일 상세 정보 */
 export interface SkillStyleInfo {
+  /** 스킬 ID */
   skillId: string;
+  /** 스킬명 */
   name: string;
+  /** 스킬 옵션 */
   option: {
+    /** 스킬 레벨 */
     level: number;
+    /** 스킬 설명 */
     description: string;
+    /** 옵션 값 배열 */
     values?: string[];
   };
 }
 
+/** 스킬 기본 정보 */
 export interface SkillInfo {
+  /** 스킬 ID */
   skillId: string;
+  /** 스킬명 */
   name: string;
+  /** 스킬 옵션 */
   option: {
+    /** 스킬 레벨 */
     level: number;
+    /** 스킬 설명 */
     description: string;
+    /** 옵션 값 배열 */
     values?: string[];
   };
+  /** 습득 레벨 */
   requiredLevel: number;
+  /** 소모 리소스 타입 */
   costType: string;
 }
 
+/** 캐릭터 버프 정보 */
 export interface CharacterBuff {
+  /** 캐릭터 고유 ID */
   characterId: string;
+  /** 캐릭터명 */
   characterName: string;
+  /** 캐릭터 레벨 */
   level: number;
+  /** 직업 ID */
   jobId: string;
+  /** 전직 ID */
   jobGrowId: string;
+  /** 직업명 */
   jobName: string;
+  /** 전직명 */
   jobGrowName: string;
+  /** 모험가명 */
   adventureName: string;
+  /** 길드 ID */
   guildId?: string;
+  /** 길드명 */
   guildName?: string;
+  /** 버프 정보 */
   buff: {
+    /** 스킬 버프 */
     skillBuff: BuffSkill;
+    /** 장비 버프 */
     equipmentBuff: BuffEquipment;
+    /** 아바타 버프 */
     avatarBuff: BuffAvatar;
+    /** 크리처 버프 */
     creatureBuff: BuffCreature;
   };
 }
 
+/** 스킬 버프 정보 */
 export interface BuffSkill {
+  /** 스킬 정보 */
   skillInfo: {
+    /** 스킬 ID */
     skillId: string;
+    /** 스킬명 */
     name: string;
+    /** 스킬 옵션 */
     option: {
+      /** 스킬 레벨 */
       level: number;
+      /** 스킬 설명 */
       description: string;
     };
   };
+  /** 능력치 변화 */
   status?: { name: string; value: number | string }[];
 }
 
+/** 장비 버프 정보 */
 export interface BuffEquipment {
+  /** 강화/증폭 정보 */
   reinforce?: {
+    /** 강화 수치 */
     reinforce: number;
+    /** 증폭 수치 */
     amplification: number;
   };
+  /** 능력치 변화 */
   status?: { name: string; value: number | string }[];
 }
 
+/** 아바타 버프 정보 */
 export interface BuffAvatar {
+  /** 능력치 변화 */
   status?: { name: string; value: number | string }[];
 }
 
+/** 크리처 버프 정보 */
 export interface BuffCreature {
+  /** 능력치 변화 */
   status?: { name: string; value: number | string }[];
 }
 
