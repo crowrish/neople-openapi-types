@@ -96,10 +96,11 @@ public
 tmp/
 temp/
 
-# API Extractor outputs (keep docs/ and api-reports/ for GitHub Pages)
+# API Extractor outputs
 # temp/ - ignored (API Extractor temporary files)
-# docs/ - committed (for GitHub Pages)
+# docs/ - ignored (not using GitHub Pages)
 # api-reports/ - committed (for API tracking)
+docs/
 
 # Claude Code memory file
 CLAUDE.md

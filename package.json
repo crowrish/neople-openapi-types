@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf dist temp docs",
+    "clean": "rm -rf dist temp",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
     "format": "prettier --write src",
@@ -17,10 +17,7 @@
     "typecheck": "tsc --noEmit",
     "api-extract": "api-extractor run --local --verbose",
     "api-extract:prod": "api-extractor run",
-    "docs:generate": "api-documenter markdown --input-folder temp --output-folder docs",
-    "docs:html": "api-documenter generate --input-folder temp --output-folder docs/html",
     "build:full": "npm run clean && mkdir -p api-reports && npm run typecheck && npm run lint && npm run build && npm run api-extract",
-    "build:docs": "npm run build:full && npm run docs:generate && npm run docs:html",
     "prepublishOnly": "npm run build:full",
     "test": "echo \"No tests yet\" && exit 0"
   },

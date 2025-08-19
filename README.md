@@ -4,9 +4,17 @@
 
 [네오플 Open API](https://developers.neople.co.kr/)를 위한 포괄적인 TypeScript 타입 정의 라이브러리입니다.
 
-## 문서
+## 목차
 
-- **[API Docs](https://crowrish.github.io/neople-openapi-types/)** - 전체 타입 정의 문서
+- [설치](#설치)
+- [지원 게임](#지원-게임)
+- [기본 사용법](#기본-사용법)
+- [상세 사용 예시](#상세-사용-예시)
+- [API 엔드포인트 참조](#api-엔드포인트-참조)
+- [주요 타입 정의](#주요-타입-정의)
+- [에러 처리](#에러-처리)
+- [개발 정보](#개발-정보)
+- [버전 히스토리](#버전-히스토리)
 
 ## 설치
 
@@ -19,9 +27,9 @@ npm install -D neople-openapi-types
 - **던전앤파이터 (Dungeon Fighter Online)** - 34개 API 엔드포인트
 - **사이퍼즈 (Cyphers)** - 11개 API 엔드포인트
 
-## 사용법
+## 기본 사용법
 
-### 기본 사용법
+### 타입 import 방법
 
 ```typescript
 import type { 
@@ -39,9 +47,11 @@ import type {
 ```
 
 
-### 사이퍼즈 API 사용 예시
+## 상세 사용 예시
 
-#### 타입 정의만 사용하기
+### 사이퍼즈 API
+
+#### 플레이어 검색
 
 ```typescript
 import type { 
@@ -648,10 +658,9 @@ src/
 ### 빌드
 
 ```bash
-npm run build         # TypeScript 컴파일
-npm run build:full    # 전체 빌드 + API 추출
-npm run docs:generate # API 문서 생성
-npm run clean         # 빌드 결과물 정리
+npm run build      # TypeScript 컴파일
+npm run build:full # 전체 빌드 + API 추출
+npm run clean      # 빌드 결과물 정리
 ```
 
 ## 버전 히스토리
@@ -661,13 +670,13 @@ npm run clean         # 빌드 결과물 정리
   - 통합 타입 선언 파일 생성 (`dist/neople-openapi-types.d.ts`)
   - API 변경사항 자동 추적 (`api-reports/`)
   - 버전 간 호환성 검증
-- **[NEW]** 자동 생성 API 문서
-  - GitHub Pages 지원 (`docs/` 폴더)
-  - 모든 타입에 대한 상세 마크다운 문서
-  - 온라인 문서: https://crowrish.github.io/neople-openapi-types/
+- **[IMPROVED]** 완전한 README.md 문서화
+  - 목차 및 체계적인 섹션 구성
+  - 상세한 사용 예시 및 API 가이드
+  - GitHub Pages 대신 단일 문서로 통합
 - **[IMPROVED]** 개발 워크플로우 강화
   - TSDoc 설정 최적화 (`tsdoc.json`)
-  - 새로운 npm 스크립트: `build:full`, `docs:generate`
+  - 새로운 npm 스크립트: `build:full`, `api-extract`
   - 배포 전 API 호환성 자동 검증
 
 ### v0.4.0 - 코드 품질 관리
@@ -704,10 +713,11 @@ MIT License
 
 이슈 및 풀 리퀘스트를 환영합니다!
 
-## 지원
+## 링크
 
-- [네오플 개발자센터](https://developers.neople.co.kr/)
-- [GitHub Issues](https://github.com/crowrish/neople-openapi-types/issues)
+- **[GitHub 저장소](https://github.com/crowrish/neople-openapi-types)** - 소스 코드 및 이슈 트래킹
+- **[npm 패키지](https://www.npmjs.com/package/neople-openapi-types)** - 설치 및 버전 정보
+- **[네오플 개발자센터](https://developers.neople.co.kr/)** - 공식 API 문서
 
 ---
 
