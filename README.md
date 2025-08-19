@@ -14,7 +14,6 @@
 - [주요 타입 정의](#주요-타입-정의)
 - [에러 처리](#에러-처리)
 - [개발 정보](#개발-정보)
-- [버전 히스토리](#버전-히스토리)
 
 ## 설치
 
@@ -311,7 +310,7 @@ try {
 ### 완료된 구현
 - **던전앤파이터**: 34/34 엔드포인트 (100%) - 파라미터 + 응답 타입 완료
 - **사이퍼즈**: 11/11 엔드포인트 (100%) - 파라미터 + 응답 타입 완료
-- **총 45개 API 엔드포인트 완전 지원**
+- **총 45개 API 엔드포인트 지원**
 
 ## 주요 타입
 
@@ -457,7 +456,7 @@ try {
 - **`TimelineItem`** - 개별 활동 기록 정보
 
 #### API 파라미터 및 응답 타입
-던전앤파이터 API 호출을 위한 완전한 타입 지원 (34개 엔드포인트):
+던전앤파이터 API 호출을 위한 타입 지원 (34개 엔드포인트):
 
 **캐릭터 시스템 (14개 엔드포인트)**
 - **`CharacterSearchParams`** / **`CharacterSearchResponse`** - 캐릭터 검색
@@ -663,39 +662,6 @@ npm run build:full # 전체 빌드 + API 추출
 npm run clean      # 빌드 결과물 정리
 ```
 
-## 버전 히스토리
-
-### v0.5.0 - API 문서화 및 품질 개선
-- **[NEW]** Microsoft API Extractor 도입
-  - 통합 타입 선언 파일 생성 (`dist/neople-openapi-types.d.ts`)
-  - API 변경사항 자동 추적 (`api-reports/`)
-  - 버전 간 호환성 검증
-- **[IMPROVED]** 완전한 README.md 문서화
-  - 목차 및 체계적인 섹션 구성
-  - 상세한 사용 예시 및 API 가이드
-  - GitHub Pages 대신 단일 문서로 통합
-- **[IMPROVED]** 개발 워크플로우 강화
-  - TSDoc 설정 최적화 (`tsdoc.json`)
-  - 새로운 npm 스크립트: `build:full`, `api-extract`
-  - 배포 전 API 호환성 자동 검증
-
-### v0.4.0 - 코드 품질 관리
-- **[NEW]** ESLint v9 + Prettier 설정
-- **[NEW]** GitHub Actions PR 검증 워크플로우
-- **[IMPROVED]** README.md 테이블 형식 개선 (가독성 향상)
-
-### v0.3.0 - API 완전 지원
-- **[COMPLETE]** 던전앤파이터 API 34/34 엔드포인트 100% 지원
-- **[COMPLETE]** 사이퍼즈 API 11/11 엔드포인트 100% 지원
-- **[REMOVED]** 비실제 API 엔드포인트 2개 제거 (사이퍼즈)
-- **[NEW]** API 엔드포인트 문서 (`DUNGEON_FIGHTER_API_ENDPOINTS.md`, `CYPHERS_API_ENDPOINTS.md`)
-
-### v0.2.0 - 타입 구조 개선
-- **[REFACTOR]** 게임별 네임스페이스 분리
-- **[NEW]** 전용 enum 타입 추가
-
-### v0.1.0 - 초기 릴리즈
-- 던전앤파이터 + 사이퍼즈 기본 타입 지원
 
 ## 라이선스
 
