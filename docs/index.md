@@ -1,3 +1,9 @@
+---
+layout: default
+title: "neople-openapi-types"
+description: "네오플 Open API를 위한 포괄적인 TypeScript 타입 정의 라이브러리"
+---
+
 # neople-openapi-types
 
 네오플 Open API를 위한 포괄적인 TypeScript 타입 정의 라이브러리입니다.
@@ -35,18 +41,18 @@ import type {
 ## API 참조
 
 ### 📖 완전한 타입 정의
-- [전체 API 타입 정의](./neople-openapi-types.md) - 자동 생성된 상세 문서
-- [던전앤파이터 네임스페이스](./neople-openapi-types.dungeonfighter.md) - DF 전용 타입들
-- [사이퍼즈 네임스페이스](./neople-openapi-types.cyphers.md) - 사이퍼즈 전용 타입들
+- [전체 API 타입 정의](neople-openapi-types) - 자동 생성된 상세 문서
+- [던전앤파이터 네임스페이스](neople-openapi-types.dungeonfighter) - DF 전용 타입들
+- [사이퍼즈 네임스페이스](neople-openapi-types.cyphers) - 사이퍼즈 전용 타입들
 
 ### 🔧 주요 타입
-- [ApiResponse](./neople-openapi-types.apiresponse.md) - 모든 API의 표준 응답 구조
-- [HttpStatusCode](./neople-openapi-types.httpstatuscode.md) - HTTP 상태 코드
-- [NeopleApiException](./neople-openapi-types.neopleapiexception.md) - API 예외 처리
+- [ApiResponse](neople-openapi-types.apiresponse) - 모든 API의 표준 응답 구조
+- [HttpStatusCode](neople-openapi-types.httpstatuscode) - HTTP 상태 코드
+- [NeopleApiException](neople-openapi-types.neopleapiexception) - API 예외 처리
 
 ### 🎮 게임별 타입
-- [DFServer](./neople-openapi-types.dfserver.md) - 던전앤파이터 서버 목록
-- [CyphersGameType](./neople-openapi-types.cyphersgametype.md) - 사이퍼즈 게임 타입
+- [DFServer](neople-openapi-types.dfserver) - 던전앤파이터 서버 목록
+- [CyphersGameType](neople-openapi-types.cyphersgametype) - 사이퍼즈 게임 타입
 
 ## 사용 예시
 
