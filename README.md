@@ -654,13 +654,43 @@ src/
 └── index.ts          # 메인 export
 ```
 
-### 빌드
+### npm Scripts
 
+개발 및 빌드를 위한 주요 npm 스크립트들:
+
+#### 빌드 명령어
 ```bash
-npm run build      # TypeScript 컴파일
-npm run build:full # 전체 빌드 + API 추출
-npm run clean      # 빌드 결과물 정리
+npm run build      # TypeScript 컴파일 (tsc)
+npm run build:full # 전체 빌드 프로세스 (clean + typecheck + lint + build + api-extract)
+npm run clean      # 빌드 결과물 정리 (dist/, temp/ 폴더 삭제)
 ```
+
+#### 코드 품질 명령어
+```bash
+npm run lint       # ESLint로 코드 검사
+npm run lint:fix   # ESLint로 코드 검사 및 자동 수정
+npm run format     # Prettier로 코드 포맷팅
+npm run format:check # Prettier로 포맷팅 검사만 실행
+npm run typecheck  # TypeScript 타입 검사 (컴파일 없이)
+```
+
+#### API 문서 생성
+```bash
+npm run api-extract     # API Extractor 실행 (로컬 모드)
+npm run api-extract:prod # API Extractor 실행 (프로덕션 모드)
+```
+
+#### 배포 관련
+```bash
+npm run prepublishOnly  # npm publish 전 자동 실행 (build:full과 동일)
+npm test               # 테스트 실행 (현재는 placeholder)
+```
+
+#### 권장 개발 워크플로우
+1. **개발 중**: `npm run typecheck && npm run lint`로 코드 검증
+2. **코드 정리**: `npm run format`으로 포맷팅 적용
+3. **배포 전**: `npm run build:full`로 전체 빌드 및 API 문서 생성
+4. **API 문서 확인**: `api-reports/neople-openapi-types.api.md` 파일에서 생성된 API 문서 확인
 
 
 ## 라이선스

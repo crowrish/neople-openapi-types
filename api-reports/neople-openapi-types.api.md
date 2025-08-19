@@ -6,7 +6,6 @@
 
 // @public
 export interface ApiError {
-    // (undocumented)
     error: {
         status: number;
         name: string;
@@ -19,7 +18,6 @@ export type ApiErrorCode = CommonApiErrorCode | DnfErrorCode | CyphersErrorCode;
 
 // @public
 export interface ApiRequestOptions extends PaginationParams {
-    // (undocumented)
     wordType?: 'full' | 'match';
 }
 
@@ -32,23 +30,16 @@ interface ApiRequestOptions_2 {
 
 // @public
 export interface ApiResponse<T> {
-    // (undocumented)
     next?: string;
-    // (undocumented)
     rows: T[];
 }
 
-// @public (undocumented)
+// @public
 interface ArtifactInfo {
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: string;
-    // (undocumented)
     slotColor: string;
 }
 
@@ -245,29 +236,21 @@ interface AvatarEmblem {
     slotNo: number;
 }
 
-// @public (undocumented)
+// @public
 interface AvatarItem {
-    // (undocumented)
     clone?: {
         itemId: string;
         itemName: string;
     };
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: string;
-    // (undocumented)
     optionAbility?: string;
-    // (undocumented)
     rare?: {
         itemId: string;
         itemName: string;
     };
-    // (undocumented)
     slotId: string;
-    // (undocumented)
     slotName: string;
 }
 
@@ -403,29 +386,18 @@ interface BuffSkill {
     }[];
 }
 
-// @public (undocumented)
+// @public
 interface CharacterAvatar {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     avatar: AvatarItem[];
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
 }
 
@@ -444,27 +416,17 @@ interface CharacterAvatarResponse {
     characterName: string;
 }
 
-// @public (undocumented)
+// @public
 interface CharacterBasic {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
 }
 
@@ -565,29 +527,18 @@ interface CharacterBuffParams {
     serverId: DFServer;
 }
 
-// @public (undocumented)
+// @public
 interface CharacterCreature {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     creature?: CreatureInfo;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
 }
 
@@ -606,29 +557,18 @@ interface CharacterCreatureResponse {
     creature?: any;
 }
 
-// @public (undocumented)
+// @public
 interface CharacterEquipment {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     equipment: EquipmentItem[];
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
 }
 
@@ -661,29 +601,18 @@ interface CharacterFameSearchResponse {
     rows: any[];
 }
 
-// @public (undocumented)
+// @public
 interface CharacterFlag {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     flag?: FlagInfo;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
 }
 
@@ -708,21 +637,14 @@ interface CharacterRankingParams extends RankingParams {
     rankingType: 'winCount' | 'winRate' | 'killCount' | 'assistCount' | 'exp';
 }
 
-// @public (undocumented)
+// @public
 interface CharacterSearch {
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
 }
 
@@ -784,37 +706,24 @@ interface CharacterSkillStyleResponse {
     skill?: any;
 }
 
-// @public (undocumented)
+// @public
 interface CharacterStat {
-    // (undocumented)
     name: string;
-    // (undocumented)
     value: string;
 }
 
-// @public (undocumented)
+// @public
 interface CharacterStatus {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
-    // (undocumented)
     stat: CharacterStat[];
 }
 
@@ -833,29 +742,18 @@ interface CharacterStatusResponse {
     stat: any[];
 }
 
-// @public (undocumented)
+// @public
 interface CharacterTalisman {
-    // (undocumented)
     adventureName: string;
-    // (undocumented)
     characterId: string;
-    // (undocumented)
     characterName: string;
-    // (undocumented)
     guildId?: string;
-    // (undocumented)
     guildName?: string;
-    // (undocumented)
     jobGrowId: string;
-    // (undocumented)
     jobGrowName: string;
-    // (undocumented)
     jobId: string;
-    // (undocumented)
     jobName: string;
-    // (undocumented)
     level: number;
-    // (undocumented)
     talismans?: TalismanInfo[];
 }
 
@@ -895,20 +793,15 @@ export enum CommonApiErrorCode {
     SYSTEM_ERROR = "API999"
 }
 
-// @public (undocumented)
+// @public
 interface CreatureInfo {
-    // (undocumented)
     artifact?: ArtifactInfo[];
-    // (undocumented)
     clone?: {
         itemId: string;
         itemName: string;
     };
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: string;
 }
 
@@ -1066,7 +959,7 @@ const CYPHERS_API_ENDPOINTS: {
     readonly CYPHER_INFO: "/cy/characters";
 };
 
-// @public (undocumented)
+// @public
 export const CYPHERS_GAME_TYPES: Record<CyphersGameType, string>;
 
 // @public (undocumented)
@@ -1147,7 +1040,7 @@ export enum CyphersErrorCode {
     SYSTEM_MAINTENANCE = "CY980"
 }
 
-// @public (undocumented)
+// @public
 export type CyphersGameType = 'rating' | 'normal';
 
 // @public (undocumented)
@@ -1191,13 +1084,13 @@ export type DateTimeString = string;
 // @public (undocumented)
 const DF_ITEM_RARITIES: Record<DFItemRarity, string>;
 
-// @public (undocumented)
+// @public
 export const DF_SERVERS: Record<DFServer, string>;
 
 // @public (undocumented)
 type DFItemRarity = 'common' | 'uncommon' | 'rare' | 'unique' | 'epic' | 'chronicle' | 'legendary' | 'myth';
 
-// @public (undocumented)
+// @public
 export type DFServer = 'anton' | 'bakal' | 'cain' | 'casillas' | 'diregie' | 'hilder' | 'prey' | 'siroco';
 
 // @public
@@ -1352,38 +1245,26 @@ interface EmblemInfo {
     name: string;
 }
 
-// @public (undocumented)
+// @public
 interface EnchantStat {
-    // (undocumented)
     name: string;
-    // (undocumented)
     value: string;
 }
 
-// @public (undocumented)
+// @public
 interface EquipmentItem {
-    // (undocumented)
     amplificationName?: string;
-    // (undocumented)
     enchant?: {
         stat?: EnchantStat[];
         status?: any[];
     };
-    // (undocumented)
     itemGradeName?: string;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: string;
-    // (undocumented)
     refine?: number;
-    // (undocumented)
     reinforce?: number;
-    // (undocumented)
     slotId: string;
-    // (undocumented)
     slotName: string;
 }
 
@@ -1402,35 +1283,23 @@ interface EquipmentSlot {
 // @public
 export const ERROR_MESSAGES: Record<string, string>;
 
-// @public (undocumented)
+// @public
 interface FlagInfo {
-    // (undocumented)
     gems?: GemInfo[];
-    // (undocumented)
     itemAvailableLevel: number;
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemObtainInfo: string;
-    // (undocumented)
     itemRarity: string;
-    // (undocumented)
     reinforce?: number;
 }
 
-// @public (undocumented)
+// @public
 interface GemInfo {
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: string;
-    // (undocumented)
     slotId: string;
-    // (undocumented)
     slotName: string;
 }
 
@@ -2024,9 +1893,7 @@ interface PackageItem {
 
 // @public
 export interface PaginationParams {
-    // (undocumented)
     limit?: number;
-    // (undocumented)
     next?: string;
 }
 
@@ -2200,17 +2067,12 @@ interface RecommendItemSlot {
 // @public
 export type RequireField<T, K extends keyof T> = T & Required<Pick<T, K>>;
 
-// @public (undocumented)
+// @public
 interface RuneInfo {
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: string;
-    // (undocumented)
     slotId: string;
-    // (undocumented)
     slotName: string;
 }
 
@@ -2411,19 +2273,13 @@ interface SkillStyleInfo {
     skillId: string;
 }
 
-// @public (undocumented)
+// @public
 interface TalismanInfo {
-    // (undocumented)
     itemId: string;
-    // (undocumented)
     itemName: string;
-    // (undocumented)
     itemRarity: string;
-    // (undocumented)
     runeTypes?: RuneInfo[];
-    // (undocumented)
     slotId: string;
-    // (undocumented)
     slotName: string;
 }
 
