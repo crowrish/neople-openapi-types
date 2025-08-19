@@ -38,27 +38,27 @@ export * from './codes';
 export * from './errors';
 
 // 유틸리티 타입들
-/** 
+/**
  * 선택적 필드를 필수로 만드는 유틸리티 타입
  * @template T - 원본 타입
  * @template K - 필수로 만들 키들
  */
 export type RequireField<T, K extends keyof T> = T & Required<Pick<T, K>>;
 
-/** 
+/**
  * 특정 필드만 선택하는 유틸리티 타입
  * @template T - 원본 타입
  * @template K - 선택할 키들
  */
 export type SelectFields<T, K extends keyof T> = Pick<T, K>;
 
-/** 
+/**
  * 날짜 문자열 타입 (YYYY-MM-DD 형식)
  * @example "2024-01-19"
  */
 export type DateString = string;
 
-/** 
+/**
  * 시간 문자열 타입 (YYYY-MM-DD HH:mm:ss 형식)
  * @example "2024-01-19 15:30:45"
  */
